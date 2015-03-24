@@ -12,6 +12,7 @@
  *
  * @build @@buildTime
  * @version @@version
+ * @git @@repository
  *
  * @module Gasane
  */

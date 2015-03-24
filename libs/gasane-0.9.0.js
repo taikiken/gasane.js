@@ -10,8 +10,9 @@
  *
  * This notice shall be included in all copies or substantial portions of the Software.
  *
- * @build 3/24/2015, 1:45:16 PM
+ * @build 3/24/2015, 1:51:04 PM
  * @version 0.9.0
+ * @git https://github.com/taikiken/gasane.js
  *
  * @module Gasane
  */

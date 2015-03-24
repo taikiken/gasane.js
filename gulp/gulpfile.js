@@ -53,6 +53,7 @@ var dir = require( './setting.js' ).dir;
 // ----------------------------------------------------------------
 // package
 var pac = require( './package.json' );
+var repository = pac.repository.url;
 
 // ----------------------------------------------------------------
 // patterns, replace task
@@ -68,6 +69,10 @@ var patterns = [
   {
     match: 'year',
     replacement: new Date().getFullYear()
+  },
+  {
+    match: 'repository',
+    replacement: repository
   }
 ];
 // ----------------------------------------------------------------
