@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Gasane</title>
+  <script type="text/javascript" src="../libs/gasane.js"></script>
+  <style type="text/css">
+    #log {
+      border: 1px solid #ccc;
+      padding: 6px;
+    }
+  </style>
+</head>
+<body>
+<input id="start" type="button" value="START"/>
+<input id="stop" type="button" value="STOP"/>
+
+<h1>Polling</h1>
+<div id="log"></div>
+<script type="text/javascript">
+  ( function ( window ){
+    "use strict";
+
+    var
+      document = window.document,
+      log = document.getElementById( "log" ),
+      start = document.getElementById( "start" ),
+      stop = document.getElementById( "stop" ),
+
+      Gasane = window.Gasane,
+      polling = new Gasane.Polling( 1000 ),
+      fps = new Gasane.Fps( 24 ),
+      count = 0,
+      f = 0;
+
+    polling.on( Gasane.Polling.PAST, function () {
+
+      count = count + 1;
+      log.innerHTML += "+++++++++++ polling +++++++++++" + count + "<br>";
+
+    } );
+
+    fps.on( Gasane.Fps.ENTER_FRAME, function () {
+
+      f = f + 1;
+      log.innerHTML += "=== fps === " + f + "<br>";
+
+    } );
+
+    start.addEventListener( "click", function () {
+
+      polling.start();
+      fps.start();
+      log.innerHTML += "*************** start ***************<br>";
+
+    }, false );
+    stop.addEventListener( "click", function () {
+
+      fps.stop();
+      log.innerHTML += "--------------- stop ---------------<br>";
+      
+    }, false );
+
+  }( window ) );
+</script>
+</body>
+</html>
