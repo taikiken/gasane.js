@@ -1,1 +1,1 @@
-jscheckstyle --html ../libs/wakegi.js > ../check/check.html
+jscheckstyle --html ../libs/gasabe.js > ../check/check.html
