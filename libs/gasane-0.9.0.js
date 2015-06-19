@@ -10,7 +10,7 @@
  *
  * This notice shall be included in all copies or substantial portions of the Software.
  *
- * @build 3/24/2015, 1:51:04 PM
+ * @build 2015-06-19 14:46:50
  * @version 0.9.0
  * @git https://github.com/taikiken/gasane.js
  *
@@ -100,6 +100,10 @@ var Gasane = Gasane || {};
  * http://www.opensource.org/licenses/mit-license.html
  *
  * This notice shall be included in all copies or substantial portions of the Software.
+ *
+ * @module Gasane
+ * @submodule EventDispatcher
+ *
  */
 ( function ( window ){
   "use strict";
@@ -331,7 +335,9 @@ var Gasane = Gasane || {};
  *
  * This notice shall be included in all copies or substantial portions of the Software.
  *
- * requestAnimationFrame controller
+ * @module Gasane
+ * @submodule Cycle
+ *
  */
 ( function ( window ){
   "use strict";
@@ -450,6 +456,9 @@ var Gasane = Gasane || {};
  * http://www.opensource.org/licenses/mit-license.html
  *
  * This notice shall be included in all copies or substantial portions of the Software.
+ *
+ * @module Gasane
+ * @submodule Polling
  */
 ( function ( window ){
   "use strict";
@@ -619,6 +628,9 @@ var Gasane = Gasane || {};
  * http://www.opensource.org/licenses/mit-license.html
  *
  * This notice shall be included in all copies or substantial portions of the Software.
+ *
+ * @module Gasane
+ * @submodule Fps
  */
 ( function ( window ){
   "use strict";

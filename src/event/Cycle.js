@@ -10,7 +10,9 @@
  *
  * This notice shall be included in all copies or substantial portions of the Software.
  *
- * requestAnimationFrame controller
+ * @module Gasane
+ * @submodule Cycle
+ *
  */
 ( function ( window ){
   "use strict";

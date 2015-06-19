@@ -9,6 +9,10 @@
  * http://www.opensource.org/licenses/mit-license.html
  *
  * This notice shall be included in all copies or substantial portions of the Software.
+ *
+ * @module Gasane
+ * @submodule EventDispatcher
+ *
  */
 ( function ( window ){
   "use strict";
