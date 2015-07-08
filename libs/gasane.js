@@ -10,7 +10,7 @@
  *
  * This notice shall be included in all copies or substantial portions of the Software.
  *
- * @build 7/9/2015, 1:33:23 AM
+ * @build 7/9/2015, 1:38:18 AM
  * @version 0.9.1
  * @git https://github.com/taikiken/gasane.js
  *
@@ -174,9 +174,16 @@ var Gasane = Gasane || {};
      */
     p.on = function ( type, listener ) {
 
+      if ( typeof listener === "undefined" ) {
+        // listener undefined
+        return;
+
+      }
+
       if ( typeof this._listeners === "undefined") {
 
         this._listeners = {};
+
       }
 
       var listeners = this._listeners;
@@ -184,6 +191,7 @@ var Gasane = Gasane || {};
       if ( typeof listeners[ type ] === "undefined" ) {
 
         listeners[ type ] = [];
+
       }
 
       if ( listeners[ type ].indexOf( listener ) === - 1 ) {
@@ -266,6 +274,7 @@ var Gasane = Gasane || {};
       var
         listeners = this._listeners,
         listeners_types,
+        listener,
         i, limit;
 
       if ( typeof listeners === "undefined" || typeof event.type === "undefined" ) {
@@ -281,11 +290,14 @@ var Gasane = Gasane || {};
 
         for ( i = 0, limit = listeners_types.length; i < limit; i++ ) {
 
-          try {
-            listeners_types[ i ].call( this, event );
-          } catch ( error ) {
-            console.warn( "illegal operation " + listeners_types[ i ] );
+          listener = listeners_types[ i ];
+
+          if ( !!listener ) {
+
+            listener.call( this, event );
+
           }
+
         }
       }
     };

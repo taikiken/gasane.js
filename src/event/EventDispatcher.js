@@ -83,9 +83,16 @@
      */
     p.on = function ( type, listener ) {
 
+      if ( typeof listener === "undefined" ) {
+        // listener undefined
+        return;
+
+      }
+
       if ( typeof this._listeners === "undefined") {
 
         this._listeners = {};
+
       }
 
       var listeners = this._listeners;
@@ -93,6 +100,7 @@
       if ( typeof listeners[ type ] === "undefined" ) {
 
         listeners[ type ] = [];
+
       }
 
       if ( listeners[ type ].indexOf( listener ) === - 1 ) {
@@ -175,6 +183,7 @@
       var
         listeners = this._listeners,
         listeners_types,
+        listener,
         i, limit;
 
       if ( typeof listeners === "undefined" || typeof event.type === "undefined" ) {
@@ -190,11 +199,14 @@
 
         for ( i = 0, limit = listeners_types.length; i < limit; i++ ) {
 
-          try {
-            listeners_types[ i ].call( this, event );
-          } catch ( error ) {
-            console.warn( "illegal operation " + listeners_types[ i ] );
+          listener = listeners_types[ i ];
+
+          if ( !!listener ) {
+
+            listener.call( this, event );
+
           }
+
         }
       }
     };
