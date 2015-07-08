@@ -190,7 +190,11 @@
 
         for ( i = 0, limit = listeners_types.length; i < limit; i++ ) {
 
-          listeners_types[ i ].call( this, event );
+          try {
+            listeners_types[ i ].call( this, event );
+          } catch ( error ) {
+            console.warn( "illegal operation " + listeners_types[ i ] );
+          }
         }
       }
     };

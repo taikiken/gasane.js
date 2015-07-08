@@ -294,7 +294,11 @@
 
         for ( i = 0, limit = listeners_types.length; i &lt; limit; i++ ) {
 
-          listeners_types[ i ].call( this, event );
+          try {
+            listeners_types[ i ].call( this, event );
+          } catch ( error ) {
+            console.warn( &quot;illegal operation &quot; + listeners_types[ i ] );
+          }
         }
       }
     };
