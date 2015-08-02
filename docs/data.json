@@ -157,6 +157,7 @@
             "file": "src/event/Cycle.js",
             "line": 20,
             "description": "requestAnimationFrame Event を発火します",
+            "static": 1,
             "is_constructor": 1
         },
         "EventDispatcher": {
@@ -224,7 +225,7 @@
     "classitems": [
         {
             "file": "src/event/Cycle.js",
-            "line": 29,
+            "line": 30,
             "itemtype": "property",
             "name": "started",
             "static": 1,
@@ -235,7 +236,7 @@
         },
         {
             "file": "src/event/Cycle.js",
-            "line": 36,
+            "line": 37,
             "itemtype": "property",
             "name": "id",
             "static": 1,
@@ -246,7 +247,7 @@
         },
         {
             "file": "src/event/Cycle.js",
-            "line": 43,
+            "line": 44,
             "itemtype": "event",
             "name": "UPDATE",
             "static": 1,
@@ -257,7 +258,7 @@
         },
         {
             "file": "src/event/Cycle.js",
-            "line": 50,
+            "line": 51,
             "itemtype": "property",
             "name": "event",
             "static": 1,
@@ -268,7 +269,7 @@
         },
         {
             "file": "src/event/Cycle.js",
-            "line": 63,
+            "line": 64,
             "description": "requestAnimationFrame を開始します",
             "itemtype": "method",
             "name": "start",
@@ -279,8 +280,8 @@
         },
         {
             "file": "src/event/Cycle.js",
-            "line": 79,
-            "description": "requestAnimationFrame を停止します<br>\n全てのlistener handlerに影響します<br>\n個別に止める場合は listener を off(removeEventListener) して下さい",
+            "line": 80,
+            "description": "requestAnimationFrame を停止します\n\n全てのlistener handlerに影響します\n\n個別に止める場合は listener を off(removeEventListener) して下さい",
             "itemtype": "method",
             "name": "stop",
             "static": 1,
@@ -290,7 +291,7 @@
         },
         {
             "file": "src/event/Cycle.js",
-            "line": 98,
+            "line": 102,
             "description": "requestAnimationFrame event handler",
             "itemtype": "method",
             "name": "update",

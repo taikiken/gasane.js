@@ -20,6 +20,7 @@
     /**
      * requestAnimationFrame Event を発火します
      * @class Cycle
+     * @static
      * @constructor
      */
     function Cycle () {
@@ -77,9 +78,12 @@
     };
 
     /**
-     * requestAnimationFrame を停止します<br>
-     * 全てのlistener handlerに影響します<br>
+     * requestAnimationFrame を停止します
+     *
+     * 全てのlistener handlerに影響します
+     *
      * 個別に止める場合は listener を off(removeEventListener) して下さい
+     *
      * @method stop
      * @static
      */
