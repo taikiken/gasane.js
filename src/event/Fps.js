@@ -1,14 +1,5 @@
 /**
- * license inazumatv.com
- * author (at)taikiken / http://inazumatv.com
- * date 2015/03/23 - 19:29
- *
- * Copyright (c) 2011-2015 inazumatv.com, inc.
- *
- * Distributed under the terms of the MIT license.
- * http://www.opensource.org/licenses/mit-license.html
- *
- * This notice shall be included in all copies or substantial portions of the Software.
+ * 指定 fps(frame rate per second)毎にeventを通知します
  *
  * @module Gasane
  * @submodule Fps
@@ -76,7 +67,7 @@
      * @event ENTER_FRAME
      * @type {string}
      */
-    Fps.ENTER_FRAME = "enterFrame";
+    Fps.ENTER_FRAME = 'enterFrame';
 
     var p = Fps.prototype;
 
@@ -93,6 +84,7 @@
     p.start = function () {
 
       if ( !this._started ) {
+
         // not started
         this._started = true;
         this.setFps( this._fps );
@@ -104,6 +96,7 @@
       }
 
       return this;
+
     };
     /**
      * Fps 計算を止めます
@@ -113,6 +106,7 @@
     p.stop = function () {
 
       if ( this._started ) {
+
         // started
         this._started = false;
         Cycle.off( Cycle.UPDATE, this._boundUpdate );
@@ -165,13 +159,16 @@
      * @return {number} 現在時間(timestamp)を返します
      */
     p.now = function () {
+
       return _now();
+
     };
     /**
      * Cycle.update event handler
      * @method update
      */
     p.update = function () {
+
       var
         now = this.now();
 

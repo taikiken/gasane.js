@@ -14,6 +14,9 @@
  * @version @@version
  * @git @@repository
  *
+ */
+/**
+ * Fps, Polling 時間管理eventを発行します
  * @module Gasane
  */
 var Gasane = Gasane || {};
@@ -42,6 +45,7 @@ var Gasane = Gasane || {};
     Date.now = function now() {
 
       return new Date().getTime();
+
     };
   }
 
@@ -85,6 +89,7 @@ var Gasane = Gasane || {};
     if( self.cancelAnimationFrame === undefined && self.clearTimeout !== undefined ) {
 
       self.cancelAnimationFrame = function ( id ) { self.clearTimeout( id ); };
+
     }
 
   }() );

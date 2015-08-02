@@ -1,0 +1,12 @@
+{
+  "name": "gasane.js",
+  "description": "fps, polling.",
+  "url": "https://github.com/taikiken/gasane.js",
+  "options": {
+    "linkNatives": "true",
+    "attributesEmit": "true",
+    "outdir": "./docs",
+    "paths": ["./src"],
+    "exclude": "./src/dependencies/*.js"
+  }
+}

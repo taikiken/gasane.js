@@ -10,10 +10,13 @@
  *
  * This notice shall be included in all copies or substantial portions of the Software.
  *
- * @build 7/9/2015, 1:38:18 AM
+ * @build 2015-08-02 16:49:29
  * @version 0.9.1
  * @git https://github.com/taikiken/gasane.js
  *
+ */
+/**
+ * Fps, Polling 時間管理eventを発行します
  * @module Gasane
  */
 var Gasane = Gasane || {};
@@ -42,6 +45,7 @@ var Gasane = Gasane || {};
     Date.now = function now() {
 
       return new Date().getTime();
+
     };
   }
 
@@ -85,21 +89,26 @@ var Gasane = Gasane || {};
     if( self.cancelAnimationFrame === undefined && self.clearTimeout !== undefined ) {
 
       self.cancelAnimationFrame = function ( id ) { self.clearTimeout( id ); };
+
     }
 
   }() );
 }( window ) );
 /**
- * license inazumatv.com
- * author (at)taikiken / http://inazumatv.com
- * date 2015/03/22 - 13:00
+ * カスタム Event を管理します<br>
+ * 必要なClassでmixinします<br>
+ * mixin 後下記の6関数が使用できるようになります<br>
+ * addEventListener<br>
+ * hasEventListener<br>
+ * removeEventListener<br>
+ * dispatchEvent<br>
+ * on<br>
+ * off<br>
  *
- * Copyright (c) 2011-2015 inazumatv.com, inc.
+ *   function SomeClass () {}
+ *   // mixin
+ *   Gasane.EventDispatcher.initialize( SomeClass.prototype );
  *
- * Distributed under the terms of the MIT license.
- * http://www.opensource.org/licenses/mit-license.html
- *
- * This notice shall be included in all copies or substantial portions of the Software.
  *
  * @module Gasane
  * @submodule EventDispatcher
@@ -121,10 +130,6 @@ var Gasane = Gasane || {};
      * dispatchEvent<br>
      * on<br>
      * off<br>
-     *
-     *      function SomeClass () {}
-     *      // mixin
-     *      Gasane.EventDispatcher.initialize( SomeClass.prototype );
      *
      * @class EventDispatcher
      * @constructor
@@ -174,13 +179,13 @@ var Gasane = Gasane || {};
      */
     p.on = function ( type, listener ) {
 
-      if ( typeof listener === "undefined" ) {
+      if ( typeof listener === 'undefined' ) {
         // listener undefined
         return;
 
       }
 
-      if ( typeof this._listeners === "undefined") {
+      if ( typeof this._listeners === 'undefined') {
 
         this._listeners = {};
 
@@ -188,7 +193,7 @@ var Gasane = Gasane || {};
 
       var listeners = this._listeners;
 
-      if ( typeof listeners[ type ] === "undefined" ) {
+      if ( typeof listeners[ type ] === 'undefined' ) {
 
         listeners[ type ] = [];
 
@@ -197,6 +202,7 @@ var Gasane = Gasane || {};
       if ( listeners[ type ].indexOf( listener ) === - 1 ) {
 
         listeners[ type ].push( listener );
+
       }
 
     };
@@ -211,27 +217,33 @@ var Gasane = Gasane || {};
 
       var listeners = this._listeners;
 
-      if ( typeof listeners === "undefined") {
+      if ( typeof listeners === 'undefined') {
 
         return false;
-      } else if ( typeof listener[ type ] !== "undefined" && listeners[ type ].indexOf( listener ) !== - 1 ) {
+
+      } else if ( typeof listener[ type ] !== 'undefined' && listeners[ type ].indexOf( listener ) !== - 1 ) {
 
         return true;
+
       }
 
       return false;
+
     };
 
     /**
      * event type から listener を削除します<br>
-     * メモリーリークの原因になるので不要になったlistenerは必ずremoveEventListenerを実行します
+     * メモリーリークの原因になるので不要になったlistenerは必ずremoveEventListenerを実行します<br>
+     * off alias
      *
      * @method removeEventListener
      * @param {string} type event type
      * @param {function} listener event handler
      */
     p.removeEventListener = function ( type, listener ) {
+
       this.off( type, listener );
+
     };
     /**
      * removeEventListener alias
@@ -240,25 +252,27 @@ var Gasane = Gasane || {};
      * @param {function} listener event handler
      */
     p.off = function ( type, listener ) {
+
       var
         listeners = this._listeners,
         listeners_types,
         index;
 
-      if ( typeof listeners === "undefined") {
+      if ( typeof listeners === 'undefined') {
 
         return;
       }
 
       listeners_types = listeners[ type ];
 
-      if ( typeof listeners_types !== "undefined" ) {
+      if ( typeof listeners_types !== 'undefined' ) {
 
         index = listeners_types.indexOf( listener );
 
         if ( index !== -1 ) {
 
           listeners_types.splice( index, 1 );
+
         }
       }
 
@@ -268,27 +282,29 @@ var Gasane = Gasane || {};
      * event発生をlistenerに通知します
      *
      * @method dispatchEvent
-     * @param {Object} event require event.type:String, { type: "some_event", [] }
+     * @param {Object} event require event.type:String, { type: 'some_event', [] }
      */
     p.dispatchEvent = function ( event ) {
+
       var
         listeners = this._listeners,
         listeners_types,
         listener,
         i, limit;
 
-      if ( typeof listeners === "undefined" || typeof event.type === "undefined" ) {
+      if ( typeof listeners === 'undefined' || typeof event.type === 'undefined' ) {
 
         return;
+
       }
 
       listeners_types = listeners[ event.type ];
 
-      if ( typeof listeners_types !== "undefined" ) {
+      if ( typeof listeners_types !== 'undefined' ) {
 
         event.target = this;
 
-        for ( i = 0, limit = listeners_types.length; i < limit; i++ ) {
+        for ( i = 0, limit = listeners_types.length; i < limit; i = ( i + 1 )|0 ) {
 
           listener = listeners_types[ i ];
 
@@ -300,6 +316,7 @@ var Gasane = Gasane || {};
 
         }
       }
+
     };
 
     /**
@@ -340,16 +357,7 @@ var Gasane = Gasane || {};
   }() );
 }( window ) );
 /**
- * license inazumatv.com
- * author (at)taikiken / http://inazumatv.com
- * date 2015/03/23 - 18:17
- *
- * Copyright (c) 2011-2015 inazumatv.com, inc.
- *
- * Distributed under the terms of the MIT license.
- * http://www.opensource.org/licenses/mit-license.html
- *
- * This notice shall be included in all copies or substantial portions of the Software.
+ * requestAnimationFrame Event を発火します
  *
  * @module Gasane
  * @submodule Cycle
@@ -373,7 +381,7 @@ var Gasane = Gasane || {};
      * @constructor
      */
     function Cycle () {
-      throw new Error( "Cycle can't create instance." );
+      throw new Error( 'Cycle can\'t create instance.' );
     }
 
     /**
@@ -395,7 +403,7 @@ var Gasane = Gasane || {};
      * @static
      * @type {string}
      */
-    Cycle.UPDATE = "cycleUpdate";
+    Cycle.UPDATE = 'cycleUpdate';
 
     /**
      * @property event
@@ -462,16 +470,7 @@ var Gasane = Gasane || {};
 
 }( window ) );
 /**
- * license inazumatv.com
- * author (at)taikiken / http://inazumatv.com
- * date 2015/03/23 - 20:04
- *
- * Copyright (c) 2011-2015 inazumatv.com, inc.
- *
- * Distributed under the terms of the MIT license.
- * http://www.opensource.org/licenses/mit-license.html
- *
- * This notice shall be included in all copies or substantial portions of the Software.
+ * polling指定時間（ミリセカンド）毎に通知を行います
  *
  * @module Gasane
  * @submodule Polling
@@ -528,8 +527,7 @@ var Gasane = Gasane || {};
      * @event PAST
      * @type {string}
      */
-    Polling.PAST = "pollingPast";
-
+    Polling.PAST = 'pollingPast';
     var p = Polling.prototype;
 
     // mixin
@@ -610,13 +608,16 @@ var Gasane = Gasane || {};
      * @return {number} 現在時間(timestamp)を返します
      */
     p.now = function () {
+
       return _now();
+
     };
     /**
      * Cycle.update event handler
      * @method update
      */
     p.update = function () {
+
       var
         now = this.now();
 
@@ -634,16 +635,7 @@ var Gasane = Gasane || {};
 
 }( window ) );
 /**
- * license inazumatv.com
- * author (at)taikiken / http://inazumatv.com
- * date 2015/03/23 - 19:29
- *
- * Copyright (c) 2011-2015 inazumatv.com, inc.
- *
- * Distributed under the terms of the MIT license.
- * http://www.opensource.org/licenses/mit-license.html
- *
- * This notice shall be included in all copies or substantial portions of the Software.
+ * 指定 fps(frame rate per second)毎にeventを通知します
  *
  * @module Gasane
  * @submodule Fps
@@ -711,7 +703,7 @@ var Gasane = Gasane || {};
      * @event ENTER_FRAME
      * @type {string}
      */
-    Fps.ENTER_FRAME = "enterFrame";
+    Fps.ENTER_FRAME = 'enterFrame';
 
     var p = Fps.prototype;
 
@@ -728,6 +720,7 @@ var Gasane = Gasane || {};
     p.start = function () {
 
       if ( !this._started ) {
+
         // not started
         this._started = true;
         this.setFps( this._fps );
@@ -739,6 +732,7 @@ var Gasane = Gasane || {};
       }
 
       return this;
+
     };
     /**
      * Fps 計算を止めます
@@ -748,6 +742,7 @@ var Gasane = Gasane || {};
     p.stop = function () {
 
       if ( this._started ) {
+
         // started
         this._started = false;
         Cycle.off( Cycle.UPDATE, this._boundUpdate );
@@ -800,13 +795,16 @@ var Gasane = Gasane || {};
      * @return {number} 現在時間(timestamp)を返します
      */
     p.now = function () {
+
       return _now();
+
     };
     /**
      * Cycle.update event handler
      * @method update
      */
     p.update = function () {
+
       var
         now = this.now();
 

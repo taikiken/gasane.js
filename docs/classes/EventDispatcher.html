@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>EventDispatcher</title>
+    <title>EventDispatcher - gasane.js</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
-    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <link rel="icon" href="../assets/favicon.ico">
     <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
 </head>
 <body class="yui3-skin-sam">
@@ -14,9 +14,7 @@
 <div id="doc">
     <div id="hd" class="yui3-g header">
         <div class="yui3-u-3-4">
-            
-                <h1><img src="../assets/css/logo.png" title=""></h1>
-            
+                <h1><img src="../assets/css/logo.png" title="gasane.js" width="117" height="52"></h1>
         </div>
         <div class="yui3-u-1-4 version">
             <em>API Docs for: </em>
@@ -27,327 +25,216 @@
         <div class="yui3-u-1-4">
             <div id="docs-sidebar" class="sidebar apidocs">
                 <div id="api-list">
-    <h2 class="off-left">APIs</h2>
-    <div id="api-tabview" class="tabview">
-        <ul class="tabs">
-            <li><a href="#api-classes">Classes</a></li>
-            <li><a href="#api-modules">Modules</a></li>
-        </ul>
-
-        <div id="api-tabview-filter">
-            <input type="search" id="api-filter" placeholder="Type to filter APIs">
-        </div>
-
-        <div id="api-tabview-panel">
-            <ul id="api-classes" class="apis classes">
-            
-                <li><a href="../classes/Cycle.html">Cycle</a></li>
-            
-                <li><a href="../classes/EventDispatcher.html">EventDispatcher</a></li>
-            
-                <li><a href="../classes/Fps.html">Fps</a></li>
-            
-                <li><a href="../classes/Polling.html">Polling</a></li>
-            
-            </ul>
-
-            <ul id="api-modules" class="apis modules">
-            
-                <li><a href="../modules/Cycle.html">Cycle</a></li>
-            
-                <li><a href="../modules/EventDispatcher.html">EventDispatcher</a></li>
-            
-                <li><a href="../modules/Fps.html">Fps</a></li>
-            
-                <li><a href="../modules/Gasane.html">Gasane</a></li>
-            
-                <li><a href="../modules/Polling.html">Polling</a></li>
-            
-            </ul>
-        </div>
-    </div>
-</div>
-
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/Cycle.html">Cycle</a></li>
+                                <li><a href="../classes/EventDispatcher.html">EventDispatcher</a></li>
+                                <li><a href="../classes/Fps.html">Fps</a></li>
+                                <li><a href="../classes/Polling.html">Polling</a></li>
+                            </ul>
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/Cycle.html">Cycle</a></li>
+                                <li><a href="../modules/EventDispatcher.html">EventDispatcher</a></li>
+                                <li><a href="../modules/Fps.html">Fps</a></li>
+                                <li><a href="../modules/Gasane.html">Gasane</a></li>
+                                <li><a href="../modules/Polling.html">Polling</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="yui3-u-3-4">
                 <div id="api-options">
-        Show:
-        <label for="api-show-inherited">
-            <input type="checkbox" id="api-show-inherited" checked>
-            Inherited
-        </label>
-
-        <label for="api-show-protected">
-            <input type="checkbox" id="api-show-protected">
-            Protected
-        </label>
-
-        <label for="api-show-private">
-            <input type="checkbox" id="api-show-private">
-            Private
-        </label>
-        <label for="api-show-deprecated">
-            <input type="checkbox" id="api-show-deprecated">
-            Deprecated
-        </label>
-
-    </div>
-
-
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>EventDispatcher Class</h1>
+<h1>EventDispatcher Class</h1>
 <div class="box meta">
-    
 
-    
 
-    
         <div class="foundat">
-            Defined in: <a href="../files/_Users_inazuma15_web_www_inazumatv.js.library_gasane.js_src_event_EventDispatcher.js.html#l23"><code>&#x2F;Users&#x2F;inazuma15&#x2F;web&#x2F;www&#x2F;inazumatv.js.library&#x2F;gasane.js&#x2F;src&#x2F;event&#x2F;EventDispatcher.js:23</code></a>
+            Defined in: <a href="../files/src_event_EventDispatcher.js.html#l31"><code>src&#x2F;event&#x2F;EventDispatcher.js:31</code></a>
         </div>
-    
 
-    
-        
             Module: <a href="../modules/EventDispatcher.html">EventDispatcher</a><br>
             Parent Module: <a href="../modules/Gasane.html">Gasane</a>
-        
-    
 
-    
 </div>
-
 
 
 <div class="box intro">
-    <p>カスタム Event を管理します<br>
-必要なClassでmixinします<br>
-mixin 後下記の6関数が使用できるようになります<br>
-addEventListener<br>
-hasEventListener<br>
-removeEventListener<br>
-dispatchEvent<br>
-on<br>
-off<br></p>
-<pre class="code prettyprint"><code> function SomeClass () {}
- // mixin
- Gasane.EventDispatcher.initialize( SomeClass.prototype );</code></pre>
+    <h3>カスタム Event を管理します</h3>
+<ul>
+<li>必要なClassでmixinします</li>
+<li>mixin 後下記の6関数が使用できるようになります</li>
+</ul>
+<pre class="code prettyprint"><code> addEventListener
+ hasEventListener
+ removeEventListener
+ dispatchEvent
+ on
+ off</code></pre>
 
 </div>
-
 
     <div class="constructor">
         <h2>Constructor</h2>
         <div id="method_EventDispatcher" class="method item">
-    <h3 class="name"><code>EventDispatcher</code></h3>
-
-    
-        <span class="paren">()</span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
+            <h3 class="name"><code>EventDispatcher</code></h3>
         
-            
+                <span class="paren">()</span>
+        
+        
+        
+        
+        
+        
+        
+        
+            <div class="meta">
+                        <p>
+                        Defined in
+                <a href="../files/src_event_EventDispatcher.js.html#l31"><code>src&#x2F;event&#x2F;EventDispatcher.js:31</code></a>
+                </p>
+        
+        
+        
+            </div>
+        
+            <div class="description">
                 
-                <p>
-                
-                Defined in
-                
-            
+            </div>
         
         
-        <a href="../files/_Users_inazuma15_web_www_inazumatv.js.library_gasane.js_src_event_EventDispatcher.js.html#l23"><code>&#x2F;Users&#x2F;inazuma15&#x2F;web&#x2F;www&#x2F;inazumatv.js.library&#x2F;gasane.js&#x2F;src&#x2F;event&#x2F;EventDispatcher.js:23</code></a>
         
-        </p>
-
-
         
-
-        
+        </div>
     </div>
-
-    <div class="description">
-        
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-    </div>
-
 
 <div id="classdocs" class="tabview">
     <ul class="api-class-tabs">
         <li class="api-class-tab index"><a href="#index">Index</a></li>
 
-        
             <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
-        
-        
-        
-        
     </ul>
 
     <div>
         <div id="index" class="api-class-tabpanel index">
             <h2 class="off-left">Item Index</h2>
 
-            
                 <div class="index-section methods">
                     <h3>Methods</h3>
 
                     <ul class="index-list methods">
-                        
                             <li class="index-item method">
                                 <a href="#method_addEventListener">addEventListener</a>
 
-                                
-                                
                             </li>
-                        
                             <li class="index-item method">
                                 <a href="#method_dispatchEvent">dispatchEvent</a>
 
-                                
-                                
                             </li>
-                        
                             <li class="index-item method">
                                 <a href="#method_hasEventListener">hasEventListener</a>
 
-                                
-                                
                             </li>
-                        
                             <li class="index-item method">
                                 <a href="#method_initialize">initialize</a>
 
-                                
                                     <span class="flag static">static</span>
-                                
-                                
                             </li>
-                        
                             <li class="index-item method">
                                 <a href="#method_off">off</a>
 
-                                
-                                
                             </li>
-                        
                             <li class="index-item method">
                                 <a href="#method_on">on</a>
 
-                                
-                                
                             </li>
-                        
                             <li class="index-item method">
                                 <a href="#method_removeEventListener">removeEventListener</a>
 
-                                
-                                
                             </li>
-                        
                     </ul>
                 </div>
-            
 
-            
 
-            
 
-            
         </div>
 
-        
             <div id="methods" class="api-class-tabpanel">
                 <h2 class="off-left">Methods</h2>
 
-                
-                    <div id="method_addEventListener" class="method item">
+<div id="method_addEventListener" class="method item">
     <h3 class="name"><code>addEventListener</code></h3>
 
-    
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
-            
                 <li class="arg">
-                    
                         <code>type</code>
-                    
                 </li>
-            
                 <li class="arg">
-                    
                         <code>listener</code>
-                    
                 </li>
-            
             </ul><span class="paren">)</span>
         </div>
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
     <div class="meta">
-        
-            
-                
                 <p>
-                
                 Defined in
-                
-            
-        
-        
-        <a href="../files/_Users_inazuma15_web_www_inazumatv.js.library_gasane.js_src_event_EventDispatcher.js.html#l49"><code>&#x2F;Users&#x2F;inazuma15&#x2F;web&#x2F;www&#x2F;inazumatv.js.library&#x2F;gasane.js&#x2F;src&#x2F;event&#x2F;EventDispatcher.js:49</code></a>
-        
+        <a href="../files/src_event_EventDispatcher.js.html#l55"><code>src&#x2F;event&#x2F;EventDispatcher.js:55</code></a>
         </p>
 
 
-        
 
-        
     </div>
 
     <div class="description">
-        <p>イベントにハンドラを登録します<br>
-ハンドラ内のthisはイベント発生元になるので注意が必要です<br>
-this参照を変えないために bind を使用する方法があります</p>
+        <p>イベントにハンドラを登録します</p>
+<p>ハンドラ内のthisはイベント発生元になるので注意が必要です</p>
+<p>this参照を変えないために bind を使用する方法があります</p>
 <pre class="code prettyprint"><code> function EventReceive () {
      var example = new ExampleClass();
 
@@ -365,104 +252,64 @@ this参照を変えないために bind を使用する方法があります</p>
 
     </div>
 
-    
         <div class="params">
             <h4>Parameters:</h4>
 
             <ul class="params-list">
-            
                 <li class="param">
-                    
                         <code class="param-name">type</code>
-                        <span class="type">String</span>
-                    
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
 
-                    
 
                     <div class="param-description">
                         <p>event type</p>
 
                     </div>
 
-                    
                 </li>
-            
                 <li class="param">
-                    
                         <code class="param-name">listener</code>
-                        <span class="type">Function</span>
-                    
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
 
-                    
 
                     <div class="param-description">
                         <p>event handler</p>
 
                     </div>
 
-                    
                 </li>
-            
             </ul>
         </div>
-    
 
-    
 
-    
+
 </div>
-
-                
-                    <div id="method_dispatchEvent" class="method item">
+<div id="method_dispatchEvent" class="method item">
     <h3 class="name"><code>dispatchEvent</code></h3>
 
-    
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
-            
                 <li class="arg">
-                    
                         <code>event</code>
-                    
                 </li>
-            
             </ul><span class="paren">)</span>
         </div>
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
     <div class="meta">
-        
-            
-                
                 <p>
-                
                 Defined in
-                
-            
-        
-        
-        <a href="../files/_Users_inazuma15_web_www_inazumatv.js.library_gasane.js_src_event_EventDispatcher.js.html#l176"><code>&#x2F;Users&#x2F;inazuma15&#x2F;web&#x2F;www&#x2F;inazumatv.js.library&#x2F;gasane.js&#x2F;src&#x2F;event&#x2F;EventDispatcher.js:176</code></a>
-        
+        <a href="../files/src_event_EventDispatcher.js.html#l193"><code>src&#x2F;event&#x2F;EventDispatcher.js:193</code></a>
         </p>
 
 
-        
 
-        
     </div>
 
     <div class="description">
@@ -470,229 +317,146 @@ this参照を変えないために bind を使用する方法があります</p>
 
     </div>
 
-    
         <div class="params">
             <h4>Parameters:</h4>
 
             <ul class="params-list">
-            
                 <li class="param">
-                    
                         <code class="param-name">event</code>
-                        <span class="type">Object</span>
-                    
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
 
-                    
 
                     <div class="param-description">
-                        <p>require event.type:String, { type: &quot;some_event&quot;, [] }</p>
+                        <p>require event.type:String, { type: 'some_event', [] }</p>
 
                     </div>
 
-                    
                 </li>
-            
             </ul>
         </div>
-    
 
-    
 
-    
+
 </div>
-
-                
-                    <div id="method_hasEventListener" class="method item">
+<div id="method_hasEventListener" class="method item">
     <h3 class="name"><code>hasEventListener</code></h3>
 
-    
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
-            
                 <li class="arg">
-                    
                         <code>type</code>
-                    
                 </li>
-            
                 <li class="arg">
-                    
                         <code>listener</code>
-                    
                 </li>
-            
             </ul><span class="paren">)</span>
         </div>
-    
 
-    
         <span class="returns-inline">
-            <span class="type">Boolean</span>
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
         </span>
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
     <div class="meta">
-        
-            
-                
                 <p>
-                
                 Defined in
-                
-            
-        
-        
-        <a href="../files/_Users_inazuma15_web_www_inazumatv.js.library_gasane.js_src_event_EventDispatcher.js.html#l113"><code>&#x2F;Users&#x2F;inazuma15&#x2F;web&#x2F;www&#x2F;inazumatv.js.library&#x2F;gasane.js&#x2F;src&#x2F;event&#x2F;EventDispatcher.js:113</code></a>
-        
+        <a href="../files/src_event_EventDispatcher.js.html#l122"><code>src&#x2F;event&#x2F;EventDispatcher.js:122</code></a>
         </p>
 
 
-        
 
-        
     </div>
 
     <div class="description">
         
     </div>
 
-    
         <div class="params">
             <h4>Parameters:</h4>
 
             <ul class="params-list">
-            
                 <li class="param">
-                    
                         <code class="param-name">type</code>
-                        <span class="type">String</span>
-                    
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
 
-                    
 
                     <div class="param-description">
                         <p>event type</p>
 
                     </div>
 
-                    
                 </li>
-            
                 <li class="param">
-                    
                         <code class="param-name">listener</code>
-                        <span class="type">Function</span>
-                    
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
 
-                    
 
                     <div class="param-description">
                         <p>event handler</p>
 
                     </div>
 
-                    
                 </li>
-            
             </ul>
         </div>
-    
 
-    
         <div class="returns">
             <h4>Returns:</h4>
 
             <div class="returns-description">
-                
-                    
-                        <span class="type">Boolean</span>:
-                    
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
                     <p>event type へ listener 登録が有るか無いかの真偽値を返します</p>
 
-                
             </div>
         </div>
-    
 
-    
+
 </div>
-
-                
-                    <div id="method_initialize" class="method item">
+<div id="method_initialize" class="method item">
     <h3 class="name"><code>initialize</code></h3>
 
-    
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
-            
                 <li class="arg">
-                    
                         <code>object</code>
-                    
                 </li>
-            
             </ul><span class="paren">)</span>
         </div>
-    
 
-    
 
-    
 
-    
 
-    
 
-    
         <span class="flag static">static</span>
-    
 
-    
 
-    
 
     <div class="meta">
-        
-            
-                
                 <p>
-                
                 Defined in
-                
-            
-        
-        
-        <a href="../files/_Users_inazuma15_web_www_inazumatv.js.library_gasane.js_src_event_EventDispatcher.js.html#l214"><code>&#x2F;Users&#x2F;inazuma15&#x2F;web&#x2F;www&#x2F;inazumatv.js.library&#x2F;gasane.js&#x2F;src&#x2F;event&#x2F;EventDispatcher.js:214</code></a>
-        
+        <a href="../files/src_event_EventDispatcher.js.html#l234"><code>src&#x2F;event&#x2F;EventDispatcher.js:234</code></a>
         </p>
 
 
-        
 
-        
     </div>
 
     <div class="description">
-        <p>EventDispatcher mixin <br></p>
-<p>addEventListener<br>
-hasEventListener<br>
-removeEventListener<br>
-dispatchEvent<br>
-on<br>
-off<br>
-をobjectへ追加します</p>
+        <h2>EventDispatcher mixin</h2>
+<p>6関数を引数(object)へ追加します</p>
+<ul>
+<li>addEventListener</li>
+<li>hasEventListener</li>
+<li>removeEventListener</li>
+<li>dispatchEvent</li>
+<li>on</li>
+<li>off</li>
+</ul>
 <pre class="code prettyprint"><code> function SomeClass () {}
  // mixin
  Gasane.EventDispatcher.initialize( SomeClass.prototype );
@@ -703,93 +467,55 @@ off<br>
 
     </div>
 
-    
         <div class="params">
             <h4>Parameters:</h4>
 
             <ul class="params-list">
-            
                 <li class="param">
-                    
                         <code class="param-name">object</code>
-                        <span class="type">Object</span>
-                    
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
 
-                    
 
                     <div class="param-description">
                          
                     </div>
 
-                    
                 </li>
-            
             </ul>
         </div>
-    
 
-    
 
-    
+
 </div>
-
-                
-                    <div id="method_off" class="method item">
+<div id="method_off" class="method item">
     <h3 class="name"><code>off</code></h3>
 
-    
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
-            
                 <li class="arg">
-                    
                         <code>type</code>
-                    
                 </li>
-            
                 <li class="arg">
-                    
                         <code>listener</code>
-                    
                 </li>
-            
             </ul><span class="paren">)</span>
         </div>
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
     <div class="meta">
-        
-            
-                
                 <p>
-                
                 Defined in
-                
-            
-        
-        
-        <a href="../files/_Users_inazuma15_web_www_inazumatv.js.library_gasane.js_src_event_EventDispatcher.js.html#l145"><code>&#x2F;Users&#x2F;inazuma15&#x2F;web&#x2F;www&#x2F;inazumatv.js.library&#x2F;gasane.js&#x2F;src&#x2F;event&#x2F;EventDispatcher.js:145</code></a>
-        
+        <a href="../files/src_event_EventDispatcher.js.html#l160"><code>src&#x2F;event&#x2F;EventDispatcher.js:160</code></a>
         </p>
 
 
-        
 
-        
     </div>
 
     <div class="description">
@@ -797,110 +523,67 @@ off<br>
 
     </div>
 
-    
         <div class="params">
             <h4>Parameters:</h4>
 
             <ul class="params-list">
-            
                 <li class="param">
-                    
                         <code class="param-name">type</code>
-                        <span class="type">String</span>
-                    
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
 
-                    
 
                     <div class="param-description">
                         <p>event type</p>
 
                     </div>
 
-                    
                 </li>
-            
                 <li class="param">
-                    
                         <code class="param-name">listener</code>
-                        <span class="type">Function</span>
-                    
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
 
-                    
 
                     <div class="param-description">
                         <p>event handler</p>
 
                     </div>
 
-                    
                 </li>
-            
             </ul>
         </div>
-    
 
-    
 
-    
+
 </div>
-
-                
-                    <div id="method_on" class="method item">
+<div id="method_on" class="method item">
     <h3 class="name"><code>on</code></h3>
 
-    
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
-            
                 <li class="arg">
-                    
                         <code>type</code>
-                    
                 </li>
-            
                 <li class="arg">
-                    
                         <code>listener</code>
-                    
                 </li>
-            
             </ul><span class="paren">)</span>
         </div>
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
     <div class="meta">
-        
-            
-                
                 <p>
-                
                 Defined in
-                
-            
-        
-        
-        <a href="../files/_Users_inazuma15_web_www_inazumatv.js.library_gasane.js_src_event_EventDispatcher.js.html#l78"><code>&#x2F;Users&#x2F;inazuma15&#x2F;web&#x2F;www&#x2F;inazumatv.js.library&#x2F;gasane.js&#x2F;src&#x2F;event&#x2F;EventDispatcher.js:78</code></a>
-        
+        <a href="../files/src_event_EventDispatcher.js.html#l86"><code>src&#x2F;event&#x2F;EventDispatcher.js:86</code></a>
         </p>
 
 
-        
 
-        
     </div>
 
     <div class="description">
@@ -908,177 +591,113 @@ off<br>
 
     </div>
 
-    
         <div class="params">
             <h4>Parameters:</h4>
 
             <ul class="params-list">
-            
                 <li class="param">
-                    
                         <code class="param-name">type</code>
-                        <span class="type">String</span>
-                    
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
 
-                    
 
                     <div class="param-description">
                         <p>event type</p>
 
                     </div>
 
-                    
                 </li>
-            
                 <li class="param">
-                    
                         <code class="param-name">listener</code>
-                        <span class="type">Function</span>
-                    
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
 
-                    
 
                     <div class="param-description">
                         <p>event handler</p>
 
                     </div>
 
-                    
                 </li>
-            
             </ul>
         </div>
-    
 
-    
 
-    
+
 </div>
-
-                
-                    <div id="method_removeEventListener" class="method item">
+<div id="method_removeEventListener" class="method item">
     <h3 class="name"><code>removeEventListener</code></h3>
 
-    
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
-            
                 <li class="arg">
-                    
                         <code>type</code>
-                    
                 </li>
-            
                 <li class="arg">
-                    
                         <code>listener</code>
-                    
                 </li>
-            
             </ul><span class="paren">)</span>
         </div>
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
     <div class="meta">
-        
-            
-                
                 <p>
-                
                 Defined in
-                
-            
-        
-        
-        <a href="../files/_Users_inazuma15_web_www_inazumatv.js.library_gasane.js_src_event_EventDispatcher.js.html#l134"><code>&#x2F;Users&#x2F;inazuma15&#x2F;web&#x2F;www&#x2F;inazumatv.js.library&#x2F;gasane.js&#x2F;src&#x2F;event&#x2F;EventDispatcher.js:134</code></a>
-        
+        <a href="../files/src_event_EventDispatcher.js.html#l146"><code>src&#x2F;event&#x2F;EventDispatcher.js:146</code></a>
         </p>
 
 
-        
 
-        
     </div>
 
     <div class="description">
-        <p>event type から listener を削除します<br>
-メモリーリークの原因になるので不要になったlistenerは必ずremoveEventListenerを実行します</p>
+        <p>event type から listener を削除します</p>
+<p>メモリーリークの原因になるので不要になったlistenerは必ずremoveEventListenerを実行します</p>
 
     </div>
 
-    
         <div class="params">
             <h4>Parameters:</h4>
 
             <ul class="params-list">
-            
                 <li class="param">
-                    
                         <code class="param-name">type</code>
-                        <span class="type">String</span>
-                    
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
 
-                    
 
                     <div class="param-description">
                         <p>event type</p>
 
                     </div>
 
-                    
                 </li>
-            
                 <li class="param">
-                    
                         <code class="param-name">listener</code>
-                        <span class="type">Function</span>
-                    
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
 
-                    
 
                     <div class="param-description">
                         <p>event handler</p>
 
                     </div>
 
-                    
                 </li>
-            
             </ul>
         </div>
-    
 
-    
 
-    
+
 </div>
-
-                
             </div>
-        
 
-        
 
-        
 
-        
     </div>
 </div>
-
                     </div>
                 </div>
             </div>

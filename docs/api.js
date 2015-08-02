@@ -17,26 +17,27 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "Cycle",
             "name": "Cycle",
-            "description": "license inazumatv.com\nauthor (at)taikiken / http://inazumatv.com\ndate 2015/03/23 - 18:17\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software."
+            "description": "requestAnimationFrame Event を発火します"
         },
         {
             "displayName": "EventDispatcher",
             "name": "EventDispatcher",
-            "description": "license inazumatv.com\nauthor (at)taikiken / http://inazumatv.com\ndate 2015/03/22 - 13:00\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software."
+            "description": "## カスタム Event を管理します\n\n1. 必要なClassでmixinします\n2. mixin 後下記の6関数が使用できるようになります\n\n\n     addEventListener\n     hasEventListener\n     removeEventListener\n     dispatchEvent\n     on\n     off\n\n     function SomeClass () {}\n     // mixin\n     Gasane.EventDispatcher.initialize( SomeClass.prototype );"
         },
         {
             "displayName": "Fps",
             "name": "Fps",
-            "description": "license inazumatv.com\nauthor (at)taikiken / http://inazumatv.com\ndate 2015/03/23 - 19:29\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software."
+            "description": "指定 fps(frame rate per second)毎にeventを通知します"
         },
         {
             "displayName": "Gasane",
-            "name": "Gasane"
+            "name": "Gasane",
+            "description": "Fps, Polling 時間管理eventを発行します"
         },
         {
             "displayName": "Polling",
             "name": "Polling",
-            "description": "license inazumatv.com\nauthor (at)taikiken / http://inazumatv.com\ndate 2015/03/23 - 20:04\n\nCopyright (c) 2011-2015 inazumatv.com, inc.\n\nDistributed under the terms of the MIT license.\nhttp://www.opensource.org/licenses/mit-license.html\n\nThis notice shall be included in all copies or substantial portions of the Software."
+            "description": "polling指定時間（ミリセカンド）毎に通知を行います"
         }
     ]
 } };

@@ -1,14 +1,22 @@
 /**
- * license inazumatv.com
- * author (at)taikiken / http://inazumatv.com
- * date 2015/03/22 - 13:00
+ * @description
+ * ## カスタム Event を管理します
  *
- * Copyright (c) 2011-2015 inazumatv.com, inc.
+ * 1. 必要なClassでmixinします
+ * 2. mixin 後下記の6関数が使用できるようになります
  *
- * Distributed under the terms of the MIT license.
- * http://www.opensource.org/licenses/mit-license.html
  *
- * This notice shall be included in all copies or substantial portions of the Software.
+ *      addEventListener
+ *      hasEventListener
+ *      removeEventListener
+ *      dispatchEvent
+ *      on
+ *      off
+ *
+ *      function SomeClass () {}
+ *      // mixin
+ *      Gasane.EventDispatcher.initialize( SomeClass.prototype );
+ *
  *
  * @module Gasane
  * @submodule EventDispatcher
@@ -21,19 +29,17 @@
 
   Gasane.EventDispatcher = ( function (){
     /**
-     * カスタム Event を管理します<br>
-     * 必要なClassでmixinします<br>
-     * mixin 後下記の6関数が使用できるようになります<br>
-     * addEventListener<br>
-     * hasEventListener<br>
-     * removeEventListener<br>
-     * dispatchEvent<br>
-     * on<br>
-     * off<br>
+     * ### カスタム Event を管理します
+     * - 必要なClassでmixinします
+     * - mixin 後下記の6関数が使用できるようになります
      *
-     *      function SomeClass () {}
-     *      // mixin
-     *      Gasane.EventDispatcher.initialize( SomeClass.prototype );
+     *
+     *      addEventListener
+     *      hasEventListener
+     *      removeEventListener
+     *      dispatchEvent
+     *      on
+     *      off
      *
      * @class EventDispatcher
      * @constructor
@@ -47,8 +53,10 @@
     p.constructor = EventDispatcher;
 
     /**
-     * イベントにハンドラを登録します<br>
-     * ハンドラ内のthisはイベント発生元になるので注意が必要です<br>
+     * イベントにハンドラを登録します
+     *
+     * ハンドラ内のthisはイベント発生元になるので注意が必要です
+     *
      * this参照を変えないために bind を使用する方法があります
      *
      *      function EventReceive () {
@@ -83,13 +91,13 @@
      */
     p.on = function ( type, listener ) {
 
-      if ( typeof listener === "undefined" ) {
+      if ( typeof listener === 'undefined' ) {
         // listener undefined
         return;
 
       }
 
-      if ( typeof this._listeners === "undefined") {
+      if ( typeof this._listeners === 'undefined') {
 
         this._listeners = {};
 
@@ -97,7 +105,7 @@
 
       var listeners = this._listeners;
 
-      if ( typeof listeners[ type ] === "undefined" ) {
+      if ( typeof listeners[ type ] === 'undefined' ) {
 
         listeners[ type ] = [];
 
@@ -106,6 +114,7 @@
       if ( listeners[ type ].indexOf( listener ) === - 1 ) {
 
         listeners[ type ].push( listener );
+
       }
 
     };
@@ -120,19 +129,23 @@
 
       var listeners = this._listeners;
 
-      if ( typeof listeners === "undefined") {
+      if ( typeof listeners === 'undefined') {
 
         return false;
-      } else if ( typeof listener[ type ] !== "undefined" && listeners[ type ].indexOf( listener ) !== - 1 ) {
+
+      } else if ( typeof listener[ type ] !== 'undefined' && listeners[ type ].indexOf( listener ) !== - 1 ) {
 
         return true;
+
       }
 
       return false;
+
     };
 
     /**
-     * event type から listener を削除します<br>
+     * event type から listener を削除します
+     *
      * メモリーリークの原因になるので不要になったlistenerは必ずremoveEventListenerを実行します
      *
      * @method removeEventListener
@@ -140,7 +153,9 @@
      * @param {function} listener event handler
      */
     p.removeEventListener = function ( type, listener ) {
+
       this.off( type, listener );
+
     };
     /**
      * removeEventListener alias
@@ -149,25 +164,27 @@
      * @param {function} listener event handler
      */
     p.off = function ( type, listener ) {
+
       var
         listeners = this._listeners,
         listeners_types,
         index;
 
-      if ( typeof listeners === "undefined") {
+      if ( typeof listeners === 'undefined') {
 
         return;
       }
 
       listeners_types = listeners[ type ];
 
-      if ( typeof listeners_types !== "undefined" ) {
+      if ( typeof listeners_types !== 'undefined' ) {
 
         index = listeners_types.indexOf( listener );
 
         if ( index !== -1 ) {
 
           listeners_types.splice( index, 1 );
+
         }
       }
 
@@ -177,27 +194,29 @@
      * event発生をlistenerに通知します
      *
      * @method dispatchEvent
-     * @param {Object} event require event.type:String, { type: "some_event", [] }
+     * @param {Object} event require event.type:String, { type: 'some_event', [] }
      */
     p.dispatchEvent = function ( event ) {
+
       var
         listeners = this._listeners,
         listeners_types,
         listener,
         i, limit;
 
-      if ( typeof listeners === "undefined" || typeof event.type === "undefined" ) {
+      if ( typeof listeners === 'undefined' || typeof event.type === 'undefined' ) {
 
         return;
+
       }
 
       listeners_types = listeners[ event.type ];
 
-      if ( typeof listeners_types !== "undefined" ) {
+      if ( typeof listeners_types !== 'undefined' ) {
 
         event.target = this;
 
-        for ( i = 0, limit = listeners_types.length; i < limit; i++ ) {
+        for ( i = 0, limit = listeners_types.length; i < limit; i = ( i + 1 )|0 ) {
 
           listener = listeners_types[ i ];
 
@@ -209,18 +228,21 @@
 
         }
       }
+
     };
 
     /**
-     * EventDispatcher mixin <br>
+     * ## EventDispatcher mixin
      *
-     * addEventListener<br>
-     * hasEventListener<br>
-     * removeEventListener<br>
-     * dispatchEvent<br>
-     * on<br>
-     * off<br>
-     * をobjectへ追加します
+     * 6関数を引数(object)へ追加します
+     *
+     * - addEventListener
+     * - hasEventListener
+     * - removeEventListener
+     * - dispatchEvent
+     * - on
+     * - off
+     *
      *
      *      function SomeClass () {}
      *      // mixin
