@@ -44,6 +44,7 @@
                                 <li><a href="../classes/Polling.html">Polling</a></li>
                             </ul>
                 
+                
                             <ul id="api-modules" class="apis modules">
                                 <li><a href="../modules/Cycle.html">Cycle</a></li>
                                 <li><a href="../modules/EventDispatcher.html">EventDispatcher</a></li>
@@ -85,6 +86,12 @@
                     <div class="content">
 <h1>Fps Class</h1>
 <div class="box meta">
+        <div class="uses">
+            Uses
+            <ul class="inline commas">
+                    <li><a href="EventDispatcher.html">EventDispatcher</a></li>
+            </ul>
+        </div>
 
 
         <div class="foundat">
@@ -103,59 +110,59 @@
 
     <div class="constructor">
         <h2>Constructor</h2>
-        <div id="method_Fps" class="method item">
-            <h3 class="name"><code>Fps</code></h3>
-        
-                <div class="args">
-                    <span class="paren">(</span><ul class="args-list inline commas">
-                        <li class="arg">
-                                <code>fps</code>
-                        </li>
-                    </ul><span class="paren">)</span>
-                </div>
-        
-        
-        
-        
-        
-        
-        
-        
-            <div class="meta">
-                        <p>
-                        Defined in
-                <a href="../files/src_event_Fps.js.html#l19"><code>src&#x2F;event&#x2F;Fps.js:19</code></a>
-                </p>
-        
-        
-        
-            </div>
-        
-            <div class="description">
-                
-            </div>
-        
-                <div class="params">
-                    <h4>Parameters:</h4>
-        
-                    <ul class="params-list">
-                        <li class="param">
-                                <code class="param-name">fps</code>
-                                <span class="type">Int</span>
-        
-        
-                            <div class="param-description">
-                                <p>frame rate</p>
-        
-                            </div>
-        
-                        </li>
-                    </ul>
-                </div>
-        
-        
-        
+<div id="method_Fps" class="method item">
+    <h3 class="name"><code>Fps</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>fps</code>
+                </li>
+            </ul><span class="paren">)</span>
         </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_event_Fps.js.html#l19"><code>src&#x2F;event&#x2F;Fps.js:19</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">fps</code>
+                        <span class="type">Int</span>
+
+
+                    <div class="param-description">
+                        <p>frame rate</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
     </div>
 
 <div id="classdocs" class="tabview">
@@ -175,16 +182,40 @@
                     <h3>Methods</h3>
 
                     <ul class="index-list methods">
+                            <li class="index-item method inherited">
+                                <a href="#method_addEventListener">addEventListener</a>
+
+                            </li>
                             <li class="index-item method">
                                 <a href="#method_changeFps">changeFps</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_dispatchEvent">dispatchEvent</a>
 
                             </li>
                             <li class="index-item method">
                                 <a href="#method_fps">fps</a>
 
                             </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_hasEventListener">hasEventListener</a>
+
+                            </li>
                             <li class="index-item method">
                                 <a href="#method_now">now</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_off">off</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_on">on</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_removeEventListener">removeEventListener</a>
 
                             </li>
                             <li class="index-item method">
@@ -245,6 +276,7 @@
                             <li class="index-item event">
                                 <a href="#event_ENTER_FRAME">ENTER_FRAME</a>
 
+                                    <span class="flag static">static</span>
                             </li>
                     </ul>
                 </div>
@@ -253,6 +285,90 @@
             <div id="methods" class="api-class-tabpanel">
                 <h2 class="off-left">Methods</h2>
 
+<div id="method_addEventListener" class="method item inherited">
+    <h3 class="name"><code>addEventListener</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>type</code>
+                </li>
+                <li class="arg">
+                        <code>listener</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/EventDispatcher.html#method_addEventListener">EventDispatcher</a>:
+        <a href="../files/src_event_EventDispatcher.js.html#l61"><code>src&#x2F;event&#x2F;EventDispatcher.js:61</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>イベントにハンドラを登録します</p>
+<p>ハンドラ内のthisはイベント発生元になるので注意が必要です</p>
+<p>this参照を変えないために bind を使用する方法があります</p>
+<pre class="code prettyprint"><code> function EventReceive () {
+     var example = new ExampleClass();
+
+     example.addEventListener( &quot;other&quot;, onOtherHandler );
+     example.addEventListener( &quot;example&quot;, this.onBoundHandler.bind( this ) );
+ }
+
+ EventReceive.prototype.onOtherHandler ( event ) {
+     console.log( this );// ExampleClass
+ }
+
+ EventReceive.prototype.onBoundHandler ( event ) {
+     console.log( this );// EventReceive
+ }</code></pre>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">type</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+
+                    <div class="param-description">
+                        <p>event type</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">listener</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+
+
+                    <div class="param-description">
+                        <p>event handler</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
 <div id="method_changeFps" class="method item">
     <h3 class="name"><code>changeFps</code></h3>
 
@@ -277,7 +393,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_Fps.js.html#l144"><code>src&#x2F;event&#x2F;Fps.js:144</code></a>
+        <a href="../files/src_event_Fps.js.html#l145"><code>src&#x2F;event&#x2F;Fps.js:145</code></a>
         </p>
 
 
@@ -317,6 +433,60 @@
 
 
 </div>
+<div id="method_dispatchEvent" class="method item inherited">
+    <h3 class="name"><code>dispatchEvent</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>event</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/EventDispatcher.html#method_dispatchEvent">EventDispatcher</a>:
+        <a href="../files/src_event_EventDispatcher.js.html#l199"><code>src&#x2F;event&#x2F;EventDispatcher.js:199</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>event発生をlistenerに通知します</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">event</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                        <p>require event.type:String, { type: 'some_event', [] }</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
 <div id="method_fps" class="method item">
     <h3 class="name"><code>fps</code></h3>
 
@@ -335,7 +505,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_Fps.js.html#l121"><code>src&#x2F;event&#x2F;Fps.js:121</code></a>
+        <a href="../files/src_event_Fps.js.html#l122"><code>src&#x2F;event&#x2F;Fps.js:122</code></a>
         </p>
 
 
@@ -359,13 +529,92 @@
 
 
 </div>
+<div id="method_hasEventListener" class="method item inherited">
+    <h3 class="name"><code>hasEventListener</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>type</code>
+                </li>
+                <li class="arg">
+                        <code>listener</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/EventDispatcher.html#method_hasEventListener">EventDispatcher</a>:
+        <a href="../files/src_event_EventDispatcher.js.html#l128"><code>src&#x2F;event&#x2F;EventDispatcher.js:128</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">type</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+
+                    <div class="param-description">
+                        <p>event type</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">listener</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+
+
+                    <div class="param-description">
+                        <p>event handler</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
+                    <p>event type へ listener 登録が有るか無いかの真偽値を返します</p>
+
+            </div>
+        </div>
+
+
+</div>
 <div id="method_now" class="method item">
     <h3 class="name"><code>now</code></h3>
 
         <span class="paren">()</span>
 
         <span class="returns-inline">
-            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+            <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
         </span>
 
 
@@ -377,7 +626,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_Fps.js.html#l157"><code>src&#x2F;event&#x2F;Fps.js:157</code></a>
+        <a href="../files/src_event_Fps.js.html#l158"><code>src&#x2F;event&#x2F;Fps.js:158</code></a>
         </p>
 
 
@@ -393,11 +642,216 @@
             <h4>Returns:</h4>
 
             <div class="returns-description">
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>:
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>:
                     <p>現在時間(timestamp)を返します</p>
 
             </div>
         </div>
+
+
+</div>
+<div id="method_off" class="method item inherited">
+    <h3 class="name"><code>off</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>type</code>
+                </li>
+                <li class="arg">
+                        <code>listener</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/EventDispatcher.html#method_off">EventDispatcher</a>:
+        <a href="../files/src_event_EventDispatcher.js.html#l166"><code>src&#x2F;event&#x2F;EventDispatcher.js:166</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>removeEventListener alias</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">type</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+
+                    <div class="param-description">
+                        <p>event type</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">listener</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+
+
+                    <div class="param-description">
+                        <p>event handler</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_on" class="method item inherited">
+    <h3 class="name"><code>on</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>type</code>
+                </li>
+                <li class="arg">
+                        <code>listener</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/EventDispatcher.html#method_on">EventDispatcher</a>:
+        <a href="../files/src_event_EventDispatcher.js.html#l92"><code>src&#x2F;event&#x2F;EventDispatcher.js:92</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>addEventListener alias</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">type</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+
+                    <div class="param-description">
+                        <p>event type</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">listener</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+
+
+                    <div class="param-description">
+                        <p>event handler</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_removeEventListener" class="method item inherited">
+    <h3 class="name"><code>removeEventListener</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>type</code>
+                </li>
+                <li class="arg">
+                        <code>listener</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/EventDispatcher.html#method_removeEventListener">EventDispatcher</a>:
+        <a href="../files/src_event_EventDispatcher.js.html#l152"><code>src&#x2F;event&#x2F;EventDispatcher.js:152</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>event type から listener を削除します</p>
+<p>メモリーリークの原因になるので不要になったlistenerは必ずremoveEventListenerを実行します</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">type</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+
+                    <div class="param-description">
+                        <p>event type</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">listener</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+
+
+                    <div class="param-description">
+                        <p>event handler</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
 
 
 </div>
@@ -425,7 +879,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_Fps.js.html#l130"><code>src&#x2F;event&#x2F;Fps.js:130</code></a>
+        <a href="../files/src_event_Fps.js.html#l131"><code>src&#x2F;event&#x2F;Fps.js:131</code></a>
         </p>
 
 
@@ -482,7 +936,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_Fps.js.html#l79"><code>src&#x2F;event&#x2F;Fps.js:79</code></a>
+        <a href="../files/src_event_Fps.js.html#l80"><code>src&#x2F;event&#x2F;Fps.js:80</code></a>
         </p>
 
 
@@ -523,7 +977,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_Fps.js.html#l101"><code>src&#x2F;event&#x2F;Fps.js:101</code></a>
+        <a href="../files/src_event_Fps.js.html#l102"><code>src&#x2F;event&#x2F;Fps.js:102</code></a>
         </p>
 
 
@@ -561,7 +1015,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_Fps.js.html#l166"><code>src&#x2F;event&#x2F;Fps.js:166</code></a>
+        <a href="../files/src_event_Fps.js.html#l167"><code>src&#x2F;event&#x2F;Fps.js:167</code></a>
         </p>
 
 
@@ -582,159 +1036,159 @@
             <div id="properties" class="api-class-tabpanel">
                 <h2 class="off-left">Properties</h2>
 
-                    <div id="property__boundUpdate" class="property item private">
-                        <h3 class="name"><code>_boundUpdate</code></h3>
-                        <span class="type">Function(this:Fps) | </span>
-                    
-                    
-                            <span class="flag private">private</span>
-                    
-                    
-                    
-                        <div class="meta">
-                                    <p>
-                                    Defined in
-                            <a href="../files/src_event_Fps.js.html#l51"><code>src&#x2F;event&#x2F;Fps.js:51</code></a>
-                            </p>
-                    
-                    
-                        </div>
-                    
-                        <div class="description">
-                            <p>Cycle.UPDATE event handler binding</p>
-                    
-                        </div>
-                    
-                    
-                    
-                    </div>
-                    <div id="property__event" class="property item private">
-                        <h3 class="name"><code>_event</code></h3>
-                        <span class="type">Type: string, scope: Fps</span>
-                    
-                    
-                            <span class="flag private">private</span>
-                    
-                    
-                    
-                        <div class="meta">
-                                    <p>
-                                    Defined in
-                            <a href="../files/src_event_Fps.js.html#l58"><code>src&#x2F;event&#x2F;Fps.js:58</code></a>
-                            </p>
-                    
-                    
-                        </div>
-                    
-                        <div class="description">
-                            
-                        </div>
-                    
-                    
-                    
-                    </div>
-                    <div id="property__fps" class="property item private">
-                        <h3 class="name"><code>_fps</code></h3>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
-                    
-                    
-                            <span class="flag private">private</span>
-                    
-                    
-                    
-                        <div class="meta">
-                                    <p>
-                                    Defined in
-                            <a href="../files/src_event_Fps.js.html#l25"><code>src&#x2F;event&#x2F;Fps.js:25</code></a>
-                            </p>
-                    
-                    
-                        </div>
-                    
-                        <div class="description">
-                            
-                        </div>
-                    
-                    
-                    
-                    </div>
-                    <div id="property__polling" class="property item private">
-                        <h3 class="name"><code>_polling</code></h3>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
-                    
-                    
-                            <span class="flag private">private</span>
-                    
-                    
-                    
-                        <div class="meta">
-                                    <p>
-                                    Defined in
-                            <a href="../files/src_event_Fps.js.html#l44"><code>src&#x2F;event&#x2F;Fps.js:44</code></a>
-                            </p>
-                    
-                    
-                        </div>
-                    
-                        <div class="description">
-                            <p>frame 間時間, frame rate 計算に使用。 1000 / fps</p>
-                    
-                        </div>
-                    
-                    
-                    
-                    </div>
-                    <div id="property__start" class="property item private">
-                        <h3 class="name"><code>_start</code></h3>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
-                    
-                    
-                            <span class="flag private">private</span>
-                    
-                    
-                    
-                        <div class="meta">
-                                    <p>
-                                    Defined in
-                            <a href="../files/src_event_Fps.js.html#l37"><code>src&#x2F;event&#x2F;Fps.js:37</code></a>
-                            </p>
-                    
-                    
-                        </div>
-                    
-                        <div class="description">
-                            <p>frame 開始時間, frame rate 計算に使用</p>
-                    
-                        </div>
-                    
-                    
-                    
-                    </div>
-                    <div id="property__started" class="property item private">
-                        <h3 class="name"><code>_started</code></h3>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-                    
-                    
-                            <span class="flag private">private</span>
-                    
-                    
-                    
-                        <div class="meta">
-                                    <p>
-                                    Defined in
-                            <a href="../files/src_event_Fps.js.html#l31"><code>src&#x2F;event&#x2F;Fps.js:31</code></a>
-                            </p>
-                    
-                    
-                        </div>
-                    
-                        <div class="description">
-                            
-                        </div>
-                    
-                    
-                    
-                    </div>
+<div id="property__boundUpdate" class="property item private">
+    <h3 class="name"><code>_boundUpdate</code></h3>
+    <span class="type">Function(this:Fps) | </span>
+
+
+        <span class="flag private">private</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_event_Fps.js.html#l52"><code>src&#x2F;event&#x2F;Fps.js:52</code></a>
+        </p>
+
+
+    </div>
+
+    <div class="description">
+        <p>Cycle.UPDATE event handler binding</p>
+
+    </div>
+
+
+
+</div>
+<div id="property__event" class="property item private">
+    <h3 class="name"><code>_event</code></h3>
+    <span class="type">Type: string, scope: Fps</span>
+
+
+        <span class="flag private">private</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_event_Fps.js.html#l59"><code>src&#x2F;event&#x2F;Fps.js:59</code></a>
+        </p>
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+
+
+</div>
+<div id="property__fps" class="property item private">
+    <h3 class="name"><code>_fps</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+
+
+        <span class="flag private">private</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_event_Fps.js.html#l26"><code>src&#x2F;event&#x2F;Fps.js:26</code></a>
+        </p>
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+
+
+</div>
+<div id="property__polling" class="property item private">
+    <h3 class="name"><code>_polling</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+
+
+        <span class="flag private">private</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_event_Fps.js.html#l45"><code>src&#x2F;event&#x2F;Fps.js:45</code></a>
+        </p>
+
+
+    </div>
+
+    <div class="description">
+        <p>frame 間時間, frame rate 計算に使用。 1000 / fps</p>
+
+    </div>
+
+
+
+</div>
+<div id="property__start" class="property item private">
+    <h3 class="name"><code>_start</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+
+
+        <span class="flag private">private</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_event_Fps.js.html#l38"><code>src&#x2F;event&#x2F;Fps.js:38</code></a>
+        </p>
+
+
+    </div>
+
+    <div class="description">
+        <p>frame 開始時間, frame rate 計算に使用</p>
+
+    </div>
+
+
+
+</div>
+<div id="property__started" class="property item private">
+    <h3 class="name"><code>_started</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+
+
+        <span class="flag private">private</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_event_Fps.js.html#l32"><code>src&#x2F;event&#x2F;Fps.js:32</code></a>
+        </p>
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+
+
+</div>
             </div>
 
 
@@ -743,16 +1197,17 @@
 
                     <div id="event_ENTER_FRAME" class="events item">
                         <h3 class="name"><code>ENTER_FRAME</code></h3>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
                     
                     
                     
                     
+                            <span class="flag static">static</span>
                     
                         <div class="meta">
                                     <p>
                                     Defined in
-                            <a href="../files/src_event_Fps.js.html#l66"><code>src&#x2F;event&#x2F;Fps.js:66</code></a>
+                            <a href="../files/src_event_Fps.js.html#l67"><code>src&#x2F;event&#x2F;Fps.js:67</code></a>
                             </p>
                     
                     

@@ -17,17 +17,19 @@
  */
 /**
  * Fps, Polling 時間管理eventを発行します
+ *
  * @module Gasane
  */
 var Gasane = Gasane || {};
 
 ( function ( window ){
-  "use strict";
+  'use strict';
 
   var
     self = window.self;
 
   /**
+   * @description
    * Polyfill methods として以下の関数を用意しています。
    *
    *    Date.now

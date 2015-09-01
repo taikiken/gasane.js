@@ -44,6 +44,7 @@
                                 <li><a href="../classes/Polling.html">Polling</a></li>
                             </ul>
                 
+                
                             <ul id="api-modules" class="apis modules">
                                 <li><a href="../modules/Cycle.html">Cycle</a></li>
                                 <li><a href="../modules/EventDispatcher.html">EventDispatcher</a></li>
@@ -108,42 +109,47 @@
  removeEventListener
  dispatchEvent
  on
- off</code></pre>
+ off
+</code></pre>
+<h3>mixin</h3>
+<pre class="code prettyprint"><code> function SomeClass () {}
+ // mixin
+ Gasane.EventDispatcher.initialize( SomeClass.prototype );</code></pre>
 
 </div>
 
     <div class="constructor">
         <h2>Constructor</h2>
-        <div id="method_EventDispatcher" class="method item">
-            <h3 class="name"><code>EventDispatcher</code></h3>
+<div id="method_EventDispatcher" class="method item">
+    <h3 class="name"><code>EventDispatcher</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_event_EventDispatcher.js.html#l31"><code>src&#x2F;event&#x2F;EventDispatcher.js:31</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
         
-                <span class="paren">()</span>
-        
-        
-        
-        
-        
-        
-        
-        
-            <div class="meta">
-                        <p>
-                        Defined in
-                <a href="../files/src_event_EventDispatcher.js.html#l31"><code>src&#x2F;event&#x2F;EventDispatcher.js:31</code></a>
-                </p>
-        
-        
-        
-            </div>
-        
-            <div class="description">
-                
-            </div>
-        
-        
-        
-        
-        </div>
+    </div>
+
+
+
+
+</div>
     </div>
 
 <div id="classdocs" class="tabview">
@@ -224,7 +230,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_EventDispatcher.js.html#l55"><code>src&#x2F;event&#x2F;EventDispatcher.js:55</code></a>
+        <a href="../files/src_event_EventDispatcher.js.html#l61"><code>src&#x2F;event&#x2F;EventDispatcher.js:61</code></a>
         </p>
 
 
@@ -258,7 +264,7 @@
             <ul class="params-list">
                 <li class="param">
                         <code class="param-name">type</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
 
 
                     <div class="param-description">
@@ -269,7 +275,7 @@
                 </li>
                 <li class="param">
                         <code class="param-name">listener</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
 
 
                     <div class="param-description">
@@ -305,7 +311,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_EventDispatcher.js.html#l193"><code>src&#x2F;event&#x2F;EventDispatcher.js:193</code></a>
+        <a href="../files/src_event_EventDispatcher.js.html#l199"><code>src&#x2F;event&#x2F;EventDispatcher.js:199</code></a>
         </p>
 
 
@@ -323,7 +329,7 @@
             <ul class="params-list">
                 <li class="param">
                         <code class="param-name">event</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
 
 
                     <div class="param-description">
@@ -353,7 +359,7 @@
         </div>
 
         <span class="returns-inline">
-            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+            <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
         </span>
 
 
@@ -365,7 +371,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_EventDispatcher.js.html#l122"><code>src&#x2F;event&#x2F;EventDispatcher.js:122</code></a>
+        <a href="../files/src_event_EventDispatcher.js.html#l128"><code>src&#x2F;event&#x2F;EventDispatcher.js:128</code></a>
         </p>
 
 
@@ -382,7 +388,7 @@
             <ul class="params-list">
                 <li class="param">
                         <code class="param-name">type</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
 
 
                     <div class="param-description">
@@ -393,7 +399,7 @@
                 </li>
                 <li class="param">
                         <code class="param-name">listener</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
 
 
                     <div class="param-description">
@@ -409,7 +415,7 @@
             <h4>Returns:</h4>
 
             <div class="returns-description">
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
                     <p>event type へ listener 登録が有るか無いかの真偽値を返します</p>
 
             </div>
@@ -439,7 +445,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_EventDispatcher.js.html#l234"><code>src&#x2F;event&#x2F;EventDispatcher.js:234</code></a>
+        <a href="../files/src_event_EventDispatcher.js.html#l240"><code>src&#x2F;event&#x2F;EventDispatcher.js:240</code></a>
         </p>
 
 
@@ -473,7 +479,7 @@
             <ul class="params-list">
                 <li class="param">
                         <code class="param-name">object</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
 
 
                     <div class="param-description">
@@ -511,7 +517,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_EventDispatcher.js.html#l160"><code>src&#x2F;event&#x2F;EventDispatcher.js:160</code></a>
+        <a href="../files/src_event_EventDispatcher.js.html#l166"><code>src&#x2F;event&#x2F;EventDispatcher.js:166</code></a>
         </p>
 
 
@@ -529,7 +535,7 @@
             <ul class="params-list">
                 <li class="param">
                         <code class="param-name">type</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
 
 
                     <div class="param-description">
@@ -540,7 +546,7 @@
                 </li>
                 <li class="param">
                         <code class="param-name">listener</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
 
 
                     <div class="param-description">
@@ -579,7 +585,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_EventDispatcher.js.html#l86"><code>src&#x2F;event&#x2F;EventDispatcher.js:86</code></a>
+        <a href="../files/src_event_EventDispatcher.js.html#l92"><code>src&#x2F;event&#x2F;EventDispatcher.js:92</code></a>
         </p>
 
 
@@ -597,7 +603,7 @@
             <ul class="params-list">
                 <li class="param">
                         <code class="param-name">type</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
 
 
                     <div class="param-description">
@@ -608,7 +614,7 @@
                 </li>
                 <li class="param">
                         <code class="param-name">listener</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
 
 
                     <div class="param-description">
@@ -647,7 +653,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_EventDispatcher.js.html#l146"><code>src&#x2F;event&#x2F;EventDispatcher.js:146</code></a>
+        <a href="../files/src_event_EventDispatcher.js.html#l152"><code>src&#x2F;event&#x2F;EventDispatcher.js:152</code></a>
         </p>
 
 
@@ -666,7 +672,7 @@
             <ul class="params-list">
                 <li class="param">
                         <code class="param-name">type</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
 
 
                     <div class="param-description">
@@ -677,7 +683,7 @@
                 </li>
                 <li class="param">
                         <code class="param-name">listener</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
 
 
                     <div class="param-description">

@@ -46,6 +46,8 @@ var yuidoc = require( 'gulp-yuidoc' );
 
 var replace = require('gulp-replace-task');
 
+var jshint = require('gulp-jshint');
+
 // ----------------------------------------------------------------
 // Directory
 var dir = require( './setting.js' ).dir;
@@ -143,6 +145,17 @@ gulp.task( 'script-docs', function () {
     .pipe( gulp.dest( dir.docs ) );
 } );
 
+// Lint JavaScript
+gulp.task('script-hint', function () {
+  return gulp.src( [
+    dir.libs + '/gasane.js'
+  ] )
+    //.pipe(reload({stream: true, once: true}))
+    .pipe(jshint())
+    .pipe(jshint.reporter('jshint-stylish'));
+});
+
+
 // ----------------------------------------------------------------
 // build
 gulp.task( 'script-build', function () {
@@ -150,6 +163,7 @@ gulp.task( 'script-build', function () {
   runSequence(
     'script-concat',
     'script-min',
+    'script-hint',
     'script-version'
   );
 

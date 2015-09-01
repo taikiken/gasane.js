@@ -41,6 +41,12 @@
      *      on
      *      off
      *
+     * ### mixin
+     *
+     *      function SomeClass () {}
+     *      // mixin
+     *      Gasane.EventDispatcher.initialize( SomeClass.prototype );
+     *
      * @class EventDispatcher
      * @constructor
      */

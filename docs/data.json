@@ -68,6 +68,7 @@
                 "Fps": 1,
                 "Polling": 1
             },
+            "elements": {},
             "classes": {
                 "Cycle": 1,
                 "EventDispatcher": 1,
@@ -84,6 +85,7 @@
         "Cycle": {
             "name": "Cycle",
             "submodules": {},
+            "elements": {},
             "classes": {
                 "Cycle": 1
             },
@@ -99,6 +101,7 @@
         "EventDispatcher": {
             "name": "EventDispatcher",
             "submodules": {},
+            "elements": {},
             "classes": {
                 "EventDispatcher": 1
             },
@@ -114,6 +117,7 @@
         "Fps": {
             "name": "Fps",
             "submodules": {},
+            "elements": {},
             "classes": {
                 "Fps": 1
             },
@@ -129,6 +133,7 @@
         "Polling": {
             "name": "Polling",
             "submodules": {},
+            "elements": {},
             "classes": {
                 "Polling": 1
             },
@@ -167,13 +172,16 @@
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
-            "extension_for": [],
+            "extension_for": [
+                "Fps",
+                "Polling"
+            ],
             "module": "Gasane",
             "submodule": "EventDispatcher",
             "namespace": "",
             "file": "src/event/EventDispatcher.js",
             "line": 31,
-            "description": "### カスタム Event を管理します\n- 必要なClassでmixinします\n- mixin 後下記の6関数が使用できるようになります\n\n\n     addEventListener\n     hasEventListener\n     removeEventListener\n     dispatchEvent\n     on\n     off",
+            "description": "### カスタム Event を管理します\n- 必要なClassでmixinします\n- mixin 後下記の6関数が使用できるようになります\n\n\n     addEventListener\n     hasEventListener\n     removeEventListener\n     dispatchEvent\n     on\n     off\n\n### mixin\n\n     function SomeClass () {}\n     // mixin\n     Gasane.EventDispatcher.initialize( SomeClass.prototype );",
             "is_constructor": 1
         },
         "Fps": {
@@ -189,6 +197,9 @@
             "namespace": "",
             "file": "src/event/Fps.js",
             "line": 19,
+            "uses": [
+                "EventDispatcher"
+            ],
             "params": [
                 {
                     "name": "fps",
@@ -212,6 +223,9 @@
             "file": "src/event/Polling.js",
             "line": 19,
             "description": "polling指定時間（ミリセカンド）毎に通知を行います",
+            "uses": [
+                "EventDispatcher"
+            ],
             "params": [
                 {
                     "name": "polling",
@@ -222,6 +236,7 @@
             "is_constructor": 1
         }
     },
+    "elements": {},
     "classitems": [
         {
             "file": "src/event/Cycle.js",
@@ -302,7 +317,7 @@
         },
         {
             "file": "src/event/EventDispatcher.js",
-            "line": 55,
+            "line": 61,
             "description": "イベントにハンドラを登録します\n\nハンドラ内のthisはイベント発生元になるので注意が必要です\n\nthis参照を変えないために bind を使用する方法があります\n\n     function EventReceive () {\n         var example = new ExampleClass();\n\n         example.addEventListener( \"other\", onOtherHandler );\n         example.addEventListener( \"example\", this.onBoundHandler.bind( this ) );\n     }\n\n     EventReceive.prototype.onOtherHandler ( event ) {\n         console.log( this );// ExampleClass\n     }\n\n     EventReceive.prototype.onBoundHandler ( event ) {\n         console.log( this );// EventReceive\n     }",
             "itemtype": "method",
             "name": "addEventListener",
@@ -324,7 +339,7 @@
         },
         {
             "file": "src/event/EventDispatcher.js",
-            "line": 86,
+            "line": 92,
             "description": "addEventListener alias",
             "itemtype": "method",
             "name": "on",
@@ -346,7 +361,7 @@
         },
         {
             "file": "src/event/EventDispatcher.js",
-            "line": 122,
+            "line": 128,
             "itemtype": "method",
             "name": "hasEventListener",
             "params": [
@@ -371,7 +386,7 @@
         },
         {
             "file": "src/event/EventDispatcher.js",
-            "line": 146,
+            "line": 152,
             "description": "event type から listener を削除します\n\nメモリーリークの原因になるので不要になったlistenerは必ずremoveEventListenerを実行します",
             "itemtype": "method",
             "name": "removeEventListener",
@@ -393,7 +408,7 @@
         },
         {
             "file": "src/event/EventDispatcher.js",
-            "line": 160,
+            "line": 166,
             "description": "removeEventListener alias",
             "itemtype": "method",
             "name": "off",
@@ -415,7 +430,7 @@
         },
         {
             "file": "src/event/EventDispatcher.js",
-            "line": 193,
+            "line": 199,
             "description": "event発生をlistenerに通知します",
             "itemtype": "method",
             "name": "dispatchEvent",
@@ -432,7 +447,7 @@
         },
         {
             "file": "src/event/EventDispatcher.js",
-            "line": 234,
+            "line": 240,
             "description": "## EventDispatcher mixin\n\n6関数を引数(object)へ追加します\n\n- addEventListener\n- hasEventListener\n- removeEventListener\n- dispatchEvent\n- on\n- off\n\n\n     function SomeClass () {}\n     // mixin\n     Gasane.EventDispatcher.initialize( SomeClass.prototype );\n\n     var someObject = {};\n     // mixin\n     Gasane.EventDispatcher.initialize( someObject );",
             "itemtype": "method",
             "name": "initialize",
@@ -450,7 +465,7 @@
         },
         {
             "file": "src/event/Fps.js",
-            "line": 25,
+            "line": 26,
             "itemtype": "property",
             "name": "_fps",
             "type": "{Number}",
@@ -462,7 +477,7 @@
         },
         {
             "file": "src/event/Fps.js",
-            "line": 31,
+            "line": 32,
             "itemtype": "property",
             "name": "_started",
             "type": "{boolean}",
@@ -474,7 +489,7 @@
         },
         {
             "file": "src/event/Fps.js",
-            "line": 37,
+            "line": 38,
             "description": "frame 開始時間, frame rate 計算に使用",
             "itemtype": "property",
             "name": "_start",
@@ -487,7 +502,7 @@
         },
         {
             "file": "src/event/Fps.js",
-            "line": 44,
+            "line": 45,
             "description": "frame 間時間, frame rate 計算に使用。 1000 / fps",
             "itemtype": "property",
             "name": "_polling",
@@ -500,7 +515,7 @@
         },
         {
             "file": "src/event/Fps.js",
-            "line": 51,
+            "line": 52,
             "description": "Cycle.UPDATE event handler binding",
             "itemtype": "property",
             "name": "_boundUpdate",
@@ -513,7 +528,7 @@
         },
         {
             "file": "src/event/Fps.js",
-            "line": 58,
+            "line": 59,
             "itemtype": "property",
             "name": "_event",
             "type": "{{type: string, scope: Fps}}",
@@ -525,9 +540,10 @@
         },
         {
             "file": "src/event/Fps.js",
-            "line": 66,
+            "line": 67,
             "itemtype": "event",
             "name": "ENTER_FRAME",
+            "static": 1,
             "type": "{string}",
             "class": "Fps",
             "module": "Gasane",
@@ -535,7 +551,7 @@
         },
         {
             "file": "src/event/Fps.js",
-            "line": 79,
+            "line": 80,
             "description": "Fps 計算を開始します",
             "itemtype": "method",
             "name": "start",
@@ -549,7 +565,7 @@
         },
         {
             "file": "src/event/Fps.js",
-            "line": 101,
+            "line": 102,
             "description": "Fps 計算を止めます",
             "itemtype": "method",
             "name": "stop",
@@ -563,7 +579,7 @@
         },
         {
             "file": "src/event/Fps.js",
-            "line": 121,
+            "line": 122,
             "itemtype": "method",
             "name": "fps",
             "return": {
@@ -576,7 +592,7 @@
         },
         {
             "file": "src/event/Fps.js",
-            "line": 130,
+            "line": 131,
             "itemtype": "method",
             "name": "setFps",
             "params": [
@@ -596,7 +612,7 @@
         },
         {
             "file": "src/event/Fps.js",
-            "line": 144,
+            "line": 145,
             "description": "Fps.setFps alias",
             "itemtype": "method",
             "name": "changeFps",
@@ -617,7 +633,7 @@
         },
         {
             "file": "src/event/Fps.js",
-            "line": 157,
+            "line": 158,
             "itemtype": "method",
             "name": "now",
             "return": {
@@ -630,7 +646,7 @@
         },
         {
             "file": "src/event/Fps.js",
-            "line": 166,
+            "line": 167,
             "description": "Cycle.update event handler",
             "itemtype": "method",
             "name": "update",
@@ -640,7 +656,7 @@
         },
         {
             "file": "src/event/Polling.js",
-            "line": 27,
+            "line": 28,
             "itemtype": "property",
             "name": "_started",
             "type": "{boolean}",
@@ -652,7 +668,7 @@
         },
         {
             "file": "src/event/Polling.js",
-            "line": 33,
+            "line": 34,
             "description": "frame 開始時間, frame rate 計算に使用",
             "itemtype": "property",
             "name": "_start",
@@ -665,7 +681,7 @@
         },
         {
             "file": "src/event/Polling.js",
-            "line": 40,
+            "line": 41,
             "description": "Cycle.UPDATE event handler binding",
             "itemtype": "property",
             "name": "_boundUpdate",
@@ -678,7 +694,7 @@
         },
         {
             "file": "src/event/Polling.js",
-            "line": 47,
+            "line": 48,
             "itemtype": "property",
             "name": "_event",
             "type": "{{type: string, scope: Polling}}",
@@ -690,9 +706,10 @@
         },
         {
             "file": "src/event/Polling.js",
-            "line": 55,
+            "line": 56,
             "itemtype": "event",
             "name": "PAST",
+            "static": 1,
             "type": "{string}",
             "class": "Polling",
             "module": "Gasane",
@@ -700,7 +717,7 @@
         },
         {
             "file": "src/event/Polling.js",
-            "line": 66,
+            "line": 68,
             "description": "polling 計算を開始します",
             "itemtype": "method",
             "name": "start",
@@ -714,7 +731,7 @@
         },
         {
             "file": "src/event/Polling.js",
-            "line": 86,
+            "line": 90,
             "description": "polling 計算を止めます",
             "itemtype": "method",
             "name": "stop",
@@ -728,7 +745,7 @@
         },
         {
             "file": "src/event/Polling.js",
-            "line": 102,
+            "line": 106,
             "itemtype": "method",
             "name": "polling",
             "return": {
@@ -741,7 +758,7 @@
         },
         {
             "file": "src/event/Polling.js",
-            "line": 111,
+            "line": 115,
             "itemtype": "method",
             "name": "setPolling",
             "params": [
@@ -761,7 +778,7 @@
         },
         {
             "file": "src/event/Polling.js",
-            "line": 123,
+            "line": 128,
             "description": "Polling.setPolling alias",
             "itemtype": "method",
             "name": "changePolling",
@@ -782,7 +799,7 @@
         },
         {
             "file": "src/event/Polling.js",
-            "line": 135,
+            "line": 140,
             "itemtype": "method",
             "name": "now",
             "return": {
@@ -795,7 +812,7 @@
         },
         {
             "file": "src/event/Polling.js",
-            "line": 144,
+            "line": 149,
             "description": "Cycle.update event handler",
             "itemtype": "method",
             "name": "update",
@@ -817,7 +834,7 @@
         },
         {
             "file": "src/Gasane.js",
-            "line": 30,
+            "line": 31,
             "description": "Polyfill methods として以下の関数を用意しています。\n\n   Date.now\n\n   requestAnimationFrame\n   cancelAnimationFrame",
             "class": "",
             "module": "Gasane"
@@ -850,7 +867,7 @@
         },
         {
             "message": "Missing item type\nPolyfill methods として以下の関数を用意しています。\n\n   Date.now\n\n   requestAnimationFrame\n   cancelAnimationFrame",
-            "line": " src/Gasane.js:30"
+            "line": " src/Gasane.js:31"
         }
     ]
 }

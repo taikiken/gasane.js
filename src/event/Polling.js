@@ -19,6 +19,7 @@
     /**
      * polling指定時間（ミリセカンド）毎に通知を行います
      * @class Polling
+     * @uses EventDispatcher
      * @param {number} polling milliseconds
      * @constructor
      */
@@ -54,6 +55,7 @@
 
     /**
      * @event PAST
+     * @static
      * @type {string}
      */
     Polling.PAST = 'pollingPast';
@@ -61,8 +63,8 @@
 
     // mixin
     EventDispatcher.initialize( p );
-
     p.constructor = Polling;
+
     /**
      * polling 計算を開始します
      * @method start
@@ -71,6 +73,7 @@
     p.start = function () {
 
       if ( !this._started ) {
+
         // not started
         this._started = true;
         this.setPolling( this._polling );
@@ -82,6 +85,7 @@
       }
 
       return this;
+
     };
     /**
      * polling 計算を止めます
@@ -119,6 +123,7 @@
       this._polling = polling;
 
       return this;
+
     };
     /**
      * Polling.setPolling alias
@@ -148,12 +153,15 @@
     p.update = function () {
 
       var
-        now = this.now();
+        now = this.now(),
+        event;
 
       if ( ( now - this._start ) >= this._polling ) {
 
         this._start = now;
-        this.dispatchEvent( this._event );
+        event = this._event;
+        event.current = now;
+        this.dispatchEvent( event );
 
       }
 

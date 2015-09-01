@@ -18,6 +18,7 @@
 
     /**
      * @class Fps
+     * @uses EventDispatcher
      * @param {int} fps frame rate
      * @constructor
      */
@@ -65,6 +66,7 @@
 
     /**
      * @event ENTER_FRAME
+     * @static
      * @type {string}
      */
     Fps.ENTER_FRAME = 'enterFrame';
@@ -73,7 +75,6 @@
 
     // mixin
     EventDispatcher.initialize( p );
-
     p.constructor = Fps;
 
     /**
@@ -170,12 +171,16 @@
     p.update = function () {
 
       var
-        now = this.now();
+        now = this.now(),
+        event;
 
       if ( ( now - this._start ) >= this._polling ) {
 
         this._start = now;
-        this.dispatchEvent( this._event );
+
+        event = this._event;
+        event.current = now;
+        this.dispatchEvent( event );
 
       }
 

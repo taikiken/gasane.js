@@ -44,6 +44,7 @@
                                 <li><a href="../classes/Polling.html">Polling</a></li>
                             </ul>
                 
+                
                             <ul id="api-modules" class="apis modules">
                                 <li><a href="../modules/Cycle.html">Cycle</a></li>
                                 <li><a href="../modules/EventDispatcher.html">EventDispatcher</a></li>
@@ -107,6 +108,7 @@
 
     /**
      * @class Fps
+     * @uses EventDispatcher
      * @param {int} fps frame rate
      * @constructor
      */
@@ -154,6 +156,7 @@
 
     /**
      * @event ENTER_FRAME
+     * @static
      * @type {string}
      */
     Fps.ENTER_FRAME = &#x27;enterFrame&#x27;;
@@ -162,7 +165,6 @@
 
     // mixin
     EventDispatcher.initialize( p );
-
     p.constructor = Fps;
 
     /**
@@ -259,12 +261,16 @@
     p.update = function () {
 
       var
-        now = this.now();
+        now = this.now(),
+        event;
 
       if ( ( now - this._start ) &gt;= this._polling ) {
 
         this._start = now;
-        this.dispatchEvent( this._event );
+
+        event = this._event;
+        event.current = now;
+        this.dispatchEvent( event );
 
       }
 

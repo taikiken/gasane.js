@@ -39,6 +39,7 @@ YUI.add("yuidoc-meta", function(Y) {
             "name": "Polling",
             "description": "polling指定時間（ミリセカンド）毎に通知を行います"
         }
-    ]
+    ],
+    "elements": []
 } };
 });
