@@ -46,11 +46,7 @@
                 
                 
                             <ul id="api-modules" class="apis modules">
-                                <li><a href="../modules/Cycle.html">Cycle</a></li>
-                                <li><a href="../modules/EventDispatcher.html">EventDispatcher</a></li>
-                                <li><a href="../modules/Fps.html">Fps</a></li>
                                 <li><a href="../modules/Gasane.html">Gasane</a></li>
-                                <li><a href="../modules/Polling.html">Polling</a></li>
                             </ul>
                         </div>
                     </div>
@@ -95,17 +91,23 @@
 
 
         <div class="foundat">
-            Defined in: <a href="../files/src_event_Polling.js.html#l19"><code>src&#x2F;event&#x2F;Polling.js:19</code></a>
+            Defined in: <a href="../files/src_event_Polling.js.html#l18"><code>src&#x2F;event&#x2F;Polling.js:18</code></a>
         </div>
 
-            Module: <a href="../modules/Polling.html">Polling</a><br>
-            Parent Module: <a href="../modules/Gasane.html">Gasane</a>
+            Module: <a href="../modules/Gasane.html">Gasane</a>
 
 </div>
 
 
 <div class="box intro">
     <p>polling指定時間（ミリセカンド）毎に通知を行います</p>
+<pre class="code prettyprint"><code> // 1sec(1000ms)毎に実行する
+ var polling = new Gasane.Polling( 1000 );
+ polling.on( Gasane.Polling.PAST, function () {
+   //
+ } );
+
+ polling.start();</code></pre>
 
 </div>
 
@@ -132,7 +134,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_Polling.js.html#l19"><code>src&#x2F;event&#x2F;Polling.js:19</code></a>
+        <a href="../files/src_event_Polling.js.html#l18"><code>src&#x2F;event&#x2F;Polling.js:18</code></a>
         </p>
 
 
@@ -386,7 +388,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_Polling.js.html#l128"><code>src&#x2F;event&#x2F;Polling.js:128</code></a>
+        <a href="../files/src_event_Polling.js.html#l137"><code>src&#x2F;event&#x2F;Polling.js:137</code></a>
         </p>
 
 
@@ -576,7 +578,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_Polling.js.html#l140"><code>src&#x2F;event&#x2F;Polling.js:140</code></a>
+        <a href="../files/src_event_Polling.js.html#l149"><code>src&#x2F;event&#x2F;Polling.js:149</code></a>
         </p>
 
 
@@ -754,7 +756,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_Polling.js.html#l106"><code>src&#x2F;event&#x2F;Polling.js:106</code></a>
+        <a href="../files/src_event_Polling.js.html#l115"><code>src&#x2F;event&#x2F;Polling.js:115</code></a>
         </p>
 
 
@@ -869,7 +871,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_Polling.js.html#l115"><code>src&#x2F;event&#x2F;Polling.js:115</code></a>
+        <a href="../files/src_event_Polling.js.html#l124"><code>src&#x2F;event&#x2F;Polling.js:124</code></a>
         </p>
 
 
@@ -925,7 +927,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_Polling.js.html#l68"><code>src&#x2F;event&#x2F;Polling.js:68</code></a>
+        <a href="../files/src_event_Polling.js.html#l76"><code>src&#x2F;event&#x2F;Polling.js:76</code></a>
         </p>
 
 
@@ -966,7 +968,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_Polling.js.html#l90"><code>src&#x2F;event&#x2F;Polling.js:90</code></a>
+        <a href="../files/src_event_Polling.js.html#l98"><code>src&#x2F;event&#x2F;Polling.js:98</code></a>
         </p>
 
 
@@ -1004,7 +1006,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_Polling.js.html#l149"><code>src&#x2F;event&#x2F;Polling.js:149</code></a>
+        <a href="../files/src_event_Polling.js.html#l158"><code>src&#x2F;event&#x2F;Polling.js:158</code></a>
         </p>
 
 
@@ -1037,7 +1039,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_Polling.js.html#l41"><code>src&#x2F;event&#x2F;Polling.js:41</code></a>
+        <a href="../files/src_event_Polling.js.html#l49"><code>src&#x2F;event&#x2F;Polling.js:49</code></a>
         </p>
 
 
@@ -1063,7 +1065,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_Polling.js.html#l48"><code>src&#x2F;event&#x2F;Polling.js:48</code></a>
+        <a href="../files/src_event_Polling.js.html#l56"><code>src&#x2F;event&#x2F;Polling.js:56</code></a>
         </p>
 
 
@@ -1088,7 +1090,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_Polling.js.html#l34"><code>src&#x2F;event&#x2F;Polling.js:34</code></a>
+        <a href="../files/src_event_Polling.js.html#l42"><code>src&#x2F;event&#x2F;Polling.js:42</code></a>
         </p>
 
 
@@ -1114,7 +1116,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_Polling.js.html#l28"><code>src&#x2F;event&#x2F;Polling.js:28</code></a>
+        <a href="../files/src_event_Polling.js.html#l36"><code>src&#x2F;event&#x2F;Polling.js:36</code></a>
         </p>
 
 
@@ -1145,7 +1147,7 @@
                         <div class="meta">
                                     <p>
                                     Defined in
-                            <a href="../files/src_event_Polling.js.html#l56"><code>src&#x2F;event&#x2F;Polling.js:56</code></a>
+                            <a href="../files/src_event_Polling.js.html#l64"><code>src&#x2F;event&#x2F;Polling.js:64</code></a>
                             </p>
                     
                     

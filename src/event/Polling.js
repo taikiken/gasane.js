@@ -2,7 +2,6 @@
  * polling指定時間（ミリセカンド）毎に通知を行います
  *
  * @module Gasane
- * @submodule Polling
  */
 ( function ( window ){
   'use strict';
@@ -18,6 +17,15 @@
 
     /**
      * polling指定時間（ミリセカンド）毎に通知を行います
+     *
+     *      // 1sec(1000ms)毎に実行する
+     *      var polling = new Gasane.Polling( 1000 );
+     *      polling.on( Gasane.Polling.PAST, function () {
+     *        //
+     *      } );
+     *
+     *      polling.start();
+     *
      * @class Polling
      * @uses EventDispatcher
      * @param {number} polling milliseconds

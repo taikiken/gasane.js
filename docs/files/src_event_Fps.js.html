@@ -46,11 +46,7 @@
                 
                 
                             <ul id="api-modules" class="apis modules">
-                                <li><a href="../modules/Cycle.html">Cycle</a></li>
-                                <li><a href="../modules/EventDispatcher.html">EventDispatcher</a></li>
-                                <li><a href="../modules/Fps.html">Fps</a></li>
                                 <li><a href="../modules/Gasane.html">Gasane</a></li>
-                                <li><a href="../modules/Polling.html">Polling</a></li>
                             </ul>
                         </div>
                     </div>
@@ -92,10 +88,9 @@
  * 指定 fps(frame rate per second)毎にeventを通知します
  *
  * @module Gasane
- * @submodule Fps
  */
 ( function ( window ){
-  &quot;use strict&quot;;
+  &#x27;use strict&#x27;;
 
   var
     Gasane = window.Gasane;
@@ -107,6 +102,16 @@
       _now = Date.now;
 
     /**
+     *
+     * 24fps毎に実行する
+     *
+     *      var fps = new Gasane.Fps( 24 );
+     *      fps.on( Gasane.Fps.ENTER_FRAME, function () {
+     *        //
+     *      } );
+     *
+     *      fps.start();
+     *
      * @class Fps
      * @uses EventDispatcher
      * @param {int} fps frame rate
@@ -281,6 +286,7 @@
   }() );
 
 }( window ) );
+
     </pre>
 </div>
                     </div>

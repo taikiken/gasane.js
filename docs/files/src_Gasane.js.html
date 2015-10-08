@@ -46,11 +46,7 @@
                 
                 
                             <ul id="api-modules" class="apis modules">
-                                <li><a href="../modules/Cycle.html">Cycle</a></li>
-                                <li><a href="../modules/EventDispatcher.html">EventDispatcher</a></li>
-                                <li><a href="../modules/Fps.html">Fps</a></li>
                                 <li><a href="../modules/Gasane.html">Gasane</a></li>
-                                <li><a href="../modules/Polling.html">Polling</a></li>
                             </ul>
                         </div>
                     </div>
@@ -108,7 +104,14 @@
 /**
  * Fps, Polling 時間管理eventを発行します
  *
+ * Polyfill methods として以下の関数を用意しています。
+ *
+ *    Date.now
+ *    requestAnimationFrame
+ *    cancelAnimationFrame
+ *
  * @module Gasane
+ * @type {{}}
  */
 var Gasane = Gasane || {};
 
@@ -117,17 +120,6 @@ var Gasane = Gasane || {};
 
   var
     self = window.self;
-
-  /**
-   * @description
-   * Polyfill methods として以下の関数を用意しています。
-   *
-   *    Date.now
-   *
-   *    requestAnimationFrame
-   *    cancelAnimationFrame
-   *
-   */
 
 
   // Date.now
@@ -139,6 +131,7 @@ var Gasane = Gasane || {};
       return new Date().getTime();
 
     };
+
   }
 
   // requestAnimationFrame
@@ -159,6 +152,7 @@ var Gasane = Gasane || {};
 
       self.requestAnimationFrame = self[ vendors[ x ] + &#x27;RequestAnimationFrame&#x27; ];
       self.cancelAnimationFrame = self[ vendors[ x ] + &#x27;CancelAnimationFrame&#x27; ] || self[ vendors[ x ] + &#x27;CancelRequestAnimationFrame&#x27; ];
+
     }
 
     if ( self.requestAnimationFrame === undefined &amp;&amp; self.setTimeout !== undefined ) {
@@ -174,6 +168,7 @@ var Gasane = Gasane || {};
         lastTime = currTime + timeToCall;
 
         return id;
+
       };
 
     }
@@ -186,6 +181,7 @@ var Gasane = Gasane || {};
 
   }() );
 }( window ) );
+
     </pre>
 </div>
                     </div>

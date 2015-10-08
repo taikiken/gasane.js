@@ -20,7 +20,6 @@
  *
  *
  * @module Gasane
- * @submodule EventDispatcher
  *
  */
 ( function ( window ){

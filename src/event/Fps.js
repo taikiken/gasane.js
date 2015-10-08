@@ -2,7 +2,6 @@
  * 指定 fps(frame rate per second)毎にeventを通知します
  *
  * @module Gasane
- * @submodule Fps
  */
 ( function ( window ){
   'use strict';
@@ -17,6 +16,16 @@
       _now = Date.now;
 
     /**
+     *
+     * 24fps毎に実行する
+     *
+     *      var fps = new Gasane.Fps( 24 );
+     *      fps.on( Gasane.Fps.ENTER_FRAME, function () {
+     *        //
+     *      } );
+     *
+     *      fps.start();
+     *
      * @class Fps
      * @uses EventDispatcher
      * @param {int} fps frame rate
