@@ -2,11 +2,12 @@
  * requestAnimationFrame Event を発火します
  *
  * @module Gasane
- * @submodule Cycle
+ *
  *
  */
 ( function ( window ){
-  "use strict";
+
+  'use strict';
 
   var
     Gasane = window.Gasane;

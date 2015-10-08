@@ -49,6 +49,7 @@ var Gasane = Gasane || {};
       return new Date().getTime();
 
     };
+
   }
 
   // requestAnimationFrame
@@ -69,6 +70,7 @@ var Gasane = Gasane || {};
 
       self.requestAnimationFrame = self[ vendors[ x ] + 'RequestAnimationFrame' ];
       self.cancelAnimationFrame = self[ vendors[ x ] + 'CancelAnimationFrame' ] || self[ vendors[ x ] + 'CancelRequestAnimationFrame' ];
+
     }
 
     if ( self.requestAnimationFrame === undefined && self.setTimeout !== undefined ) {
@@ -84,6 +86,7 @@ var Gasane = Gasane || {};
         lastTime = currTime + timeToCall;
 
         return id;
+
       };
 
     }

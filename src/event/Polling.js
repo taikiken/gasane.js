@@ -5,7 +5,7 @@
  * @submodule Polling
  */
 ( function ( window ){
-  "use strict";
+  'use strict';
 
   var
     Gasane = window.Gasane;
@@ -102,6 +102,7 @@
       }
 
       return this;
+
     };
     /**
      * @method polling

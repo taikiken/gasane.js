@@ -10,7 +10,7 @@
  *
  * This notice shall be included in all copies or substantial portions of the Software.
  *
- * @build 2015-09-01 13:08:06
+ * @build 2015-10-08 18:44:54
  * @version 0.9.2
  * @git https://github.com/taikiken/gasane.js
  *
@@ -29,6 +29,7 @@ var Gasane = Gasane || {};
     self = window.self;
 
   /**
+   * @description
    * Polyfill methods として以下の関数を用意しています。
    *
    *    Date.now
@@ -48,6 +49,7 @@ var Gasane = Gasane || {};
       return new Date().getTime();
 
     };
+
   }
 
   // requestAnimationFrame
@@ -68,6 +70,7 @@ var Gasane = Gasane || {};
 
       self.requestAnimationFrame = self[ vendors[ x ] + 'RequestAnimationFrame' ];
       self.cancelAnimationFrame = self[ vendors[ x ] + 'CancelAnimationFrame' ] || self[ vendors[ x ] + 'CancelRequestAnimationFrame' ];
+
     }
 
     if ( self.requestAnimationFrame === undefined && self.setTimeout !== undefined ) {
@@ -83,6 +86,7 @@ var Gasane = Gasane || {};
         lastTime = currTime + timeToCall;
 
         return id;
+
       };
 
     }
@@ -95,8 +99,9 @@ var Gasane = Gasane || {};
 
   }() );
 }( window ) );
+/*jslint -W016*/
 /**
- * @description
+ *
  * ## カスタム Event を管理します
  *
  * 1. 必要なClassでmixinします
@@ -120,7 +125,7 @@ var Gasane = Gasane || {};
  *
  */
 ( function ( window ){
-  "use strict";
+  'use strict';
   var
     Gasane = window.Gasane;
 
@@ -137,6 +142,12 @@ var Gasane = Gasane || {};
      *      dispatchEvent
      *      on
      *      off
+     *
+     * ### mixin
+     *
+     *      function SomeClass () {}
+     *      // mixin
+     *      Gasane.EventDispatcher.initialize( SomeClass.prototype );
      *
      * @class EventDispatcher
      * @constructor
@@ -264,7 +275,7 @@ var Gasane = Gasane || {};
 
       var
         listeners = this._listeners,
-        listeners_types,
+        listenersTypes,
         index;
 
       if ( typeof listeners === 'undefined') {
@@ -272,15 +283,15 @@ var Gasane = Gasane || {};
         return;
       }
 
-      listeners_types = listeners[ type ];
+      listenersTypes = listeners[ type ];
 
-      if ( typeof listeners_types !== 'undefined' ) {
+      if ( typeof listenersTypes !== 'undefined' ) {
 
-        index = listeners_types.indexOf( listener );
+        index = listenersTypes.indexOf( listener );
 
         if ( index !== -1 ) {
 
-          listeners_types.splice( index, 1 );
+          listenersTypes.splice( index, 1 );
 
         }
       }
@@ -297,7 +308,7 @@ var Gasane = Gasane || {};
 
       var
         listeners = this._listeners,
-        listeners_types,
+        listenersTypes,
         listener,
         i, limit;
 
@@ -307,15 +318,15 @@ var Gasane = Gasane || {};
 
       }
 
-      listeners_types = listeners[ event.type ];
+      listenersTypes = listeners[ event.type ];
 
-      if ( typeof listeners_types !== 'undefined' ) {
+      if ( typeof listenersTypes !== 'undefined' ) {
 
         event.target = this;
 
-        for ( i = 0, limit = listeners_types.length; i < limit; i = ( i + 1 )|0 ) {
+        for ( i = 0, limit = listenersTypes.length; i < limit; i = ( i + 1 )|0 ) {
 
-          listener = listeners_types[ i ];
+          listener = listenersTypes[ i ];
 
           if ( !!listener ) {
 
@@ -367,15 +378,17 @@ var Gasane = Gasane || {};
     return EventDispatcher;
   }() );
 }( window ) );
+
 /**
  * requestAnimationFrame Event を発火します
  *
  * @module Gasane
- * @submodule Cycle
+ *
  *
  */
 ( function ( window ){
-  "use strict";
+
+  'use strict';
 
   var
     Gasane = window.Gasane;
@@ -484,6 +497,7 @@ var Gasane = Gasane || {};
   }() );
 
 }( window ) );
+
 /**
  * polling指定時間（ミリセカンド）毎に通知を行います
  *
@@ -491,7 +505,7 @@ var Gasane = Gasane || {};
  * @submodule Polling
  */
 ( function ( window ){
-  "use strict";
+  'use strict';
 
   var
     Gasane = window.Gasane;
@@ -588,6 +602,7 @@ var Gasane = Gasane || {};
       }
 
       return this;
+
     };
     /**
      * @method polling
@@ -657,6 +672,7 @@ var Gasane = Gasane || {};
   }() );
 
 }( window ) );
+
 /**
  * 指定 fps(frame rate per second)毎にeventを通知します
  *
@@ -664,7 +680,7 @@ var Gasane = Gasane || {};
  * @submodule Fps
  */
 ( function ( window ){
-  "use strict";
+  'use strict';
 
   var
     Gasane = window.Gasane;

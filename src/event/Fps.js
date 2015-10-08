@@ -5,7 +5,7 @@
  * @submodule Fps
  */
 ( function ( window ){
-  "use strict";
+  'use strict';
 
   var
     Gasane = window.Gasane;

@@ -148,7 +148,7 @@ gulp.task( 'script-docs', function () {
 // Lint JavaScript
 gulp.task('script-hint', function () {
   return gulp.src( [
-    dir.libs + '/gasane.js'
+    dir.src + '/**/*.js'
   ] )
     //.pipe(reload({stream: true, once: true}))
     .pipe(jshint())
