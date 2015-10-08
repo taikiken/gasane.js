@@ -1,6 +1,8 @@
 # gasane.js
 Event 管理, requestAnimationFrame wrapper
 
+Custom Event の作成などに使えます
+
 ## API
 [Docs](http://localhost:63342/gasane.js/docs/)
 
