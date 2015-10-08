@@ -46,11 +46,7 @@
                 
                 
                             <ul id="api-modules" class="apis modules">
-                                <li><a href="../modules/Cycle.html">Cycle</a></li>
-                                <li><a href="../modules/EventDispatcher.html">EventDispatcher</a></li>
-                                <li><a href="../modules/Fps.html">Fps</a></li>
                                 <li><a href="../modules/Gasane.html">Gasane</a></li>
-                                <li><a href="../modules/Polling.html">Polling</a></li>
                             </ul>
                         </div>
                     </div>
@@ -92,10 +88,9 @@
  * polling指定時間（ミリセカンド）毎に通知を行います
  *
  * @module Gasane
- * @submodule Polling
  */
 ( function ( window ){
-  &quot;use strict&quot;;
+  &#x27;use strict&#x27;;
 
   var
     Gasane = window.Gasane;
@@ -108,6 +103,15 @@
 
     /**
      * polling指定時間（ミリセカンド）毎に通知を行います
+     *
+     *      // 1sec(1000ms)毎に実行する
+     *      var polling = new Gasane.Polling( 1000 );
+     *      polling.on( Gasane.Polling.PAST, function () {
+     *        //
+     *      } );
+     *
+     *      polling.start();
+     *
      * @class Polling
      * @uses EventDispatcher
      * @param {number} polling milliseconds
@@ -192,6 +196,7 @@
       }
 
       return this;
+
     };
     /**
      * @method polling
@@ -261,6 +266,7 @@
   }() );
 
 }( window ) );
+
     </pre>
 </div>
                     </div>

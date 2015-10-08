@@ -18,7 +18,14 @@
 /**
  * Fps, Polling 時間管理eventを発行します
  *
+ * Polyfill methods として以下の関数を用意しています。
+ *
+ *    Date.now
+ *    requestAnimationFrame
+ *    cancelAnimationFrame
+ *
  * @module Gasane
+ * @type {{}}
  */
 var Gasane = Gasane || {};
 
@@ -27,17 +34,6 @@ var Gasane = Gasane || {};
 
   var
     self = window.self;
-
-  /**
-   * @description
-   * Polyfill methods として以下の関数を用意しています。
-   *
-   *    Date.now
-   *
-   *    requestAnimationFrame
-   *    cancelAnimationFrame
-   *
-   */
 
 
   // Date.now

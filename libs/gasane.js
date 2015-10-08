@@ -10,7 +10,7 @@
  *
  * This notice shall be included in all copies or substantial portions of the Software.
  *
- * @build 2015-10-08 18:45:18
+ * @build 2015-10-08 19:06:07
  * @version 0.9.3
  * @git https://github.com/taikiken/gasane.js
  *
@@ -18,7 +18,14 @@
 /**
  * Fps, Polling 時間管理eventを発行します
  *
+ * Polyfill methods として以下の関数を用意しています。
+ *
+ *    Date.now
+ *    requestAnimationFrame
+ *    cancelAnimationFrame
+ *
  * @module Gasane
+ * @type {{}}
  */
 var Gasane = Gasane || {};
 
@@ -27,17 +34,6 @@ var Gasane = Gasane || {};
 
   var
     self = window.self;
-
-  /**
-   * @description
-   * Polyfill methods として以下の関数を用意しています。
-   *
-   *    Date.now
-   *
-   *    requestAnimationFrame
-   *    cancelAnimationFrame
-   *
-   */
 
 
   // Date.now
@@ -99,6 +95,7 @@ var Gasane = Gasane || {};
 
   }() );
 }( window ) );
+
 /*jslint -W016*/
 /**
  *
@@ -121,7 +118,6 @@ var Gasane = Gasane || {};
  *
  *
  * @module Gasane
- * @submodule EventDispatcher
  *
  */
 ( function ( window ){
@@ -502,7 +498,6 @@ var Gasane = Gasane || {};
  * polling指定時間（ミリセカンド）毎に通知を行います
  *
  * @module Gasane
- * @submodule Polling
  */
 ( function ( window ){
   'use strict';
@@ -518,6 +513,15 @@ var Gasane = Gasane || {};
 
     /**
      * polling指定時間（ミリセカンド）毎に通知を行います
+     *
+     *    // 1sec(1000ms)毎に実行する
+     *    var polling = new Gasane.Polling( 1000 );
+     *    polling.on( Gasane.Polling.PAST, function () {
+     *      //
+     *    } );
+     *
+     *    polling.start();
+     *
      * @class Polling
      * @uses EventDispatcher
      * @param {number} polling milliseconds
@@ -677,7 +681,6 @@ var Gasane = Gasane || {};
  * 指定 fps(frame rate per second)毎にeventを通知します
  *
  * @module Gasane
- * @submodule Fps
  */
 ( function ( window ){
   'use strict';
@@ -692,6 +695,15 @@ var Gasane = Gasane || {};
       _now = Date.now;
 
     /**
+     *
+     *    // 24fps毎に実行する
+     *    var fps = new Gasane.Fps( 24 );
+     *    fps.on( Gasane.Fps.ENTER_FRAME, function () {
+     *      //
+     *    } );
+     *
+     *    fps.start();
+     *
      * @class Fps
      * @uses EventDispatcher
      * @param {int} fps frame rate
