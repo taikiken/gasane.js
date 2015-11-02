@@ -127,11 +127,24 @@
 
     /**
      * @method hasEventListener
+     * @deprecated instead of has
      * @param {string} type event type
      * @param {function} listener event handler
      * @return {boolean} event type へ listener 登録が有るか無いかの真偽値を返します
      */
     p.hasEventListener = function ( type, listener ) {
+
+      return this.has( type, listener );
+
+    };
+
+    /**
+     * @method has
+     * @param {string} type event type
+     * @param {function} listener event handler
+     * @return {boolean} event type へ listener 登録が有るか無いかの真偽値を返します
+     */
+    p.has = function ( type, listener ) {
 
       var listeners = this._listeners;
 
@@ -165,6 +178,11 @@
     };
     /**
      * removeEventListener alias
+     *
+     * event type から listener を削除します
+     *
+     * メモリーリークの原因になるので不要になったlistenerは必ずremoveEventListenerを実行します
+     *
      * @method off
      * @param {string} type event type
      * @param {function} listener event handler
@@ -174,7 +192,8 @@
       var
         listeners = this._listeners,
         listenersTypes,
-        index;
+        index,
+        i, limit, found;
 
       if ( typeof listeners === 'undefined') {
 
@@ -189,9 +208,33 @@
 
         if ( index !== -1 ) {
 
-          listenersTypes.splice( index, 1 );
+          //listenersTypes.splice( index, 1 );
+          // 切り詰めると dispatch 中にすぐ off されると index が変わり続く listener が call できなくなるのでやめる
+          listenersTypes[ index ] = null;
+
+          // 全て null の時は [] にする
+          found = false;
+          for ( i = 0, limit = listenersTypes.length; i < limit; i = (i + 1)|0 ) {
+
+            if ( listenersTypes[ i ] !== null ) {
+
+              // null 以外が見つかったので処理中止
+              found = true;
+              break;
+
+            }
+
+          }
+
+          if ( !found ) {
+
+            // null 以外が無い
+            this._listeners[ type ] = [];
+
+          }
 
         }
+
       }
 
     };
@@ -233,6 +276,7 @@
           }
 
         }
+
       }
 
     };
@@ -267,6 +311,7 @@
       object.addEventListener = p.addEventListener;
       object.on = p.on;
       object.hasEventListener = p.hasEventListener;
+      object.has = p.has;
       object.removeEventListener = p.removeEventListener;
       object.off = p.off;
       object.dispatchEvent = p.dispatchEvent;

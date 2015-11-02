@@ -141,7 +141,7 @@ gulp.task( 'script-docs', function () {
 
   return gulp.src( scripts )
     .pipe( yuidoc.parser() )
-    .pipe(yuidoc.generator())
+    .pipe( yuidoc.generator() )
     .pipe( gulp.dest( dir.docs ) );
 } );
 

@@ -10,8 +10,8 @@
  *
  * This notice shall be included in all copies or substantial portions of the Software.
  *
- * @build 2015-10-08 19:06:07
- * @version 0.9.3
+ * @build 2015-11-02 15:12:21
+ * @version 0.9.4
  * @git https://github.com/taikiken/gasane.js
  *
  */
@@ -225,11 +225,24 @@ var Gasane = Gasane || {};
 
     /**
      * @method hasEventListener
+     * @deprecated instead of has
      * @param {string} type event type
      * @param {function} listener event handler
      * @return {boolean} event type へ listener 登録が有るか無いかの真偽値を返します
      */
     p.hasEventListener = function ( type, listener ) {
+
+      return this.has( type, listener );
+
+    };
+
+    /**
+     * @method has
+     * @param {string} type event type
+     * @param {function} listener event handler
+     * @return {boolean} event type へ listener 登録が有るか無いかの真偽値を返します
+     */
+    p.has = function ( type, listener ) {
 
       var listeners = this._listeners;
 
@@ -263,6 +276,11 @@ var Gasane = Gasane || {};
     };
     /**
      * removeEventListener alias
+     *
+     * event type から listener を削除します
+     *
+     * メモリーリークの原因になるので不要になったlistenerは必ずremoveEventListenerを実行します
+     *
      * @method off
      * @param {string} type event type
      * @param {function} listener event handler
@@ -272,7 +290,8 @@ var Gasane = Gasane || {};
       var
         listeners = this._listeners,
         listenersTypes,
-        index;
+        index,
+        i, limit, found;
 
       if ( typeof listeners === 'undefined') {
 
@@ -287,9 +306,33 @@ var Gasane = Gasane || {};
 
         if ( index !== -1 ) {
 
-          listenersTypes.splice( index, 1 );
+          //listenersTypes.splice( index, 1 );
+          // 切り詰めると dispatch 中にすぐ off されると index が変わり続く listener が call できなくなるのでやめる
+          listenersTypes[ index ] = null;
+
+          // 全て null の時は [] にする
+          found = false;
+          for ( i = 0, limit = listenersTypes.length; i < limit; i = (i + 1)|0 ) {
+
+            if ( listenersTypes[ i ] !== null ) {
+
+              // null 以外が見つかったので処理中止
+              found = true;
+              break;
+
+            }
+
+          }
+
+          if ( !found ) {
+
+            // null 以外が無い
+            this._listeners[ type ] = [];
+
+          }
 
         }
+
       }
 
     };
@@ -331,6 +374,7 @@ var Gasane = Gasane || {};
           }
 
         }
+
       }
 
     };
@@ -365,6 +409,7 @@ var Gasane = Gasane || {};
       object.addEventListener = p.addEventListener;
       object.on = p.on;
       object.hasEventListener = p.hasEventListener;
+      object.has = p.has;
       object.removeEventListener = p.removeEventListener;
       object.off = p.off;
       object.dispatchEvent = p.dispatchEvent;
@@ -514,13 +559,13 @@ var Gasane = Gasane || {};
     /**
      * polling指定時間（ミリセカンド）毎に通知を行います
      *
-     *    // 1sec(1000ms)毎に実行する
-     *    var polling = new Gasane.Polling( 1000 );
-     *    polling.on( Gasane.Polling.PAST, function () {
-     *      //
-     *    } );
+     *      // 1sec(1000ms)毎に実行する
+     *      var polling = new Gasane.Polling( 1000 );
+     *      polling.on( Gasane.Polling.PAST, function () {
+     *        //
+     *      } );
      *
-     *    polling.start();
+     *      polling.start();
      *
      * @class Polling
      * @uses EventDispatcher
@@ -696,13 +741,14 @@ var Gasane = Gasane || {};
 
     /**
      *
-     *    // 24fps毎に実行する
-     *    var fps = new Gasane.Fps( 24 );
-     *    fps.on( Gasane.Fps.ENTER_FRAME, function () {
-     *      //
-     *    } );
+     * 24fps毎に実行する
      *
-     *    fps.start();
+     *      var fps = new Gasane.Fps( 24 );
+     *      fps.on( Gasane.Fps.ENTER_FRAME, function () {
+     *        //
+     *      } );
+     *
+     *      fps.start();
      *
      * @class Fps
      * @uses EventDispatcher

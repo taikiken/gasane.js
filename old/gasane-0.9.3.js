@@ -10,8 +10,8 @@
  *
  * This notice shall be included in all copies or substantial portions of the Software.
  *
- * @build 2015-11-02 15:12:21
- * @version 0.9.4
+ * @build 2015-11-02 14:52:32
+ * @version 0.9.3
  * @git https://github.com/taikiken/gasane.js
  *
  */
@@ -216,6 +216,7 @@ var Gasane = Gasane || {};
       }
 
       if ( listeners[ type ].indexOf( listener ) === - 1 ) {
+      //if ( !this.hasEventListener( type, listener ) ) {
 
         listeners[ type ].push( listener );
 
@@ -225,24 +226,11 @@ var Gasane = Gasane || {};
 
     /**
      * @method hasEventListener
-     * @deprecated instead of has
      * @param {string} type event type
      * @param {function} listener event handler
      * @return {boolean} event type へ listener 登録が有るか無いかの真偽値を返します
      */
     p.hasEventListener = function ( type, listener ) {
-
-      return this.has( type, listener );
-
-    };
-
-    /**
-     * @method has
-     * @param {string} type event type
-     * @param {function} listener event handler
-     * @return {boolean} event type へ listener 登録が有るか無いかの真偽値を返します
-     */
-    p.has = function ( type, listener ) {
 
       var listeners = this._listeners;
 
@@ -276,11 +264,6 @@ var Gasane = Gasane || {};
     };
     /**
      * removeEventListener alias
-     *
-     * event type から listener を削除します
-     *
-     * メモリーリークの原因になるので不要になったlistenerは必ずremoveEventListenerを実行します
-     *
      * @method off
      * @param {string} type event type
      * @param {function} listener event handler
@@ -290,8 +273,7 @@ var Gasane = Gasane || {};
       var
         listeners = this._listeners,
         listenersTypes,
-        index,
-        i, limit, found;
+        index;
 
       if ( typeof listeners === 'undefined') {
 
@@ -306,33 +288,9 @@ var Gasane = Gasane || {};
 
         if ( index !== -1 ) {
 
-          //listenersTypes.splice( index, 1 );
-          // 切り詰めると dispatch 中にすぐ off されると index が変わり続く listener が call できなくなるのでやめる
-          listenersTypes[ index ] = null;
-
-          // 全て null の時は [] にする
-          found = false;
-          for ( i = 0, limit = listenersTypes.length; i < limit; i = (i + 1)|0 ) {
-
-            if ( listenersTypes[ i ] !== null ) {
-
-              // null 以外が見つかったので処理中止
-              found = true;
-              break;
-
-            }
-
-          }
-
-          if ( !found ) {
-
-            // null 以外が無い
-            this._listeners[ type ] = [];
-
-          }
+          listenersTypes.splice( index, 1 );
 
         }
-
       }
 
     };
@@ -363,13 +321,21 @@ var Gasane = Gasane || {};
 
         event.target = this;
 
+        console.log( 'dispatch start -------------- ', listenersTypes.length );
+
         for ( i = 0, limit = listenersTypes.length; i < limit; i = ( i + 1 )|0 ) {
 
           listener = listenersTypes[ i ];
 
+          console.log( 'dispatchEvent ', event.type, listenersTypes.length, listenersTypes );
+
           if ( !!listener ) {
 
             listener.call( this, event );
+
+          } else {
+
+            console.log( 'dispatchEvent undefined ', event.type, limit, listenersTypes.length , listenersTypes );
 
           }
 
@@ -409,7 +375,6 @@ var Gasane = Gasane || {};
       object.addEventListener = p.addEventListener;
       object.on = p.on;
       object.hasEventListener = p.hasEventListener;
-      object.has = p.has;
       object.removeEventListener = p.removeEventListener;
       object.off = p.off;
       object.dispatchEvent = p.dispatchEvent;
