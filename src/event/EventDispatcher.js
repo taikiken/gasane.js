@@ -51,13 +51,23 @@
      * @constructor
      */
     function EventDispatcher () {
-      //this._listeners = {};
     }
 
     var p = EventDispatcher.prototype;
-
     p.constructor = EventDispatcher;
 
+    /**
+     * EventDispatcher.on alias, EventDispatcher.on 使用推奨
+     *
+     * @method addEventListener
+     * @param {string} type event type
+     * @param {function} listener event handler
+     */
+    p.addEventListener = function ( type, listener ) {
+
+      this.on( type, listener );
+
+    };
     /**
      * イベントにハンドラを登録します
      *
@@ -80,17 +90,6 @@
      *          console.log( this );// EventReceive
      *      }
      *
-     * @method addEventListener
-     * @param {string} type event type
-     * @param {function} listener event handler
-     */
-    p.addEventListener = function ( type, listener ) {
-
-      this.on( type, listener );
-
-    };
-    /**
-     * addEventListener alias
      * @method on
      * @param {string} type event type
      * @param {function} listener event handler
@@ -98,6 +97,7 @@
     p.on = function ( type, listener ) {
 
       if ( typeof listener === 'undefined' ) {
+
         // listener undefined
         return;
 
@@ -126,8 +126,9 @@
     };
 
     /**
+     * EventDispatcher.has alias, EventDispatcher.has 使用推奨
+     *
      * @method hasEventListener
-     * @deprecated instead of has
      * @param {string} type event type
      * @param {function} listener event handler
      * @return {boolean} event type へ listener 登録が有るか無いかの真偽値を返します
@@ -139,6 +140,8 @@
     };
 
     /**
+     * listener 登録があるか調べます
+     *
      * @method has
      * @param {string} type event type
      * @param {function} listener event handler
@@ -167,6 +170,8 @@
      *
      * メモリーリークの原因になるので不要になったlistenerは必ずremoveEventListenerを実行します
      *
+     * EventDispatcher.off alias, EventDispatcher.off 使用推奨
+     *
      * @method removeEventListener
      * @param {string} type event type
      * @param {function} listener event handler
@@ -177,8 +182,6 @@
 
     };
     /**
-     * removeEventListener alias
-     *
      * event type から listener を削除します
      *
      * メモリーリークの原因になるので不要になったlistenerは必ずremoveEventListenerを実行します
@@ -209,10 +212,11 @@
         if ( index !== -1 ) {
 
           //listenersTypes.splice( index, 1 );
-          // 切り詰めると dispatch 中にすぐ off されると index が変わり続く listener が call できなくなるのでやめる
+          // dispatch 中にすぐ off （切り詰める）されると index が変わり続く listener が call できなくなるのでやめる
+          // 変わりにnull代入
           listenersTypes[ index ] = null;
 
-          // 全て null の時は [] にする
+          // 全て null の時は [] （空配列）にする
           found = false;
           for ( i = 0, limit = listenersTypes.length; i < limit; i = (i + 1)|0 ) {
 

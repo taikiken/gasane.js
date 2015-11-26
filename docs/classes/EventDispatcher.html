@@ -171,6 +171,10 @@
 
                             </li>
                             <li class="index-item method">
+                                <a href="#method_has">has</a>
+
+                            </li>
+                            <li class="index-item method">
                                 <a href="#method_hasEventListener">hasEventListener</a>
 
                             </li>
@@ -225,7 +229,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_EventDispatcher.js.html#l61"><code>src&#x2F;event&#x2F;EventDispatcher.js:61</code></a>
+        <a href="../files/src_event_EventDispatcher.js.html#l59"><code>src&#x2F;event&#x2F;EventDispatcher.js:59</code></a>
         </p>
 
 
@@ -233,23 +237,7 @@
     </div>
 
     <div class="description">
-        <p>イベントにハンドラを登録します</p>
-<p>ハンドラ内のthisはイベント発生元になるので注意が必要です</p>
-<p>this参照を変えないために bind を使用する方法があります</p>
-<pre class="code prettyprint"><code> function EventReceive () {
-     var example = new ExampleClass();
-
-     example.addEventListener( &quot;other&quot;, onOtherHandler );
-     example.addEventListener( &quot;example&quot;, this.onBoundHandler.bind( this ) );
- }
-
- EventReceive.prototype.onOtherHandler ( event ) {
-     console.log( this );// ExampleClass
- }
-
- EventReceive.prototype.onBoundHandler ( event ) {
-     console.log( this );// EventReceive
- }</code></pre>
+        <p>EventDispatcher.on alias, EventDispatcher.on 使用推奨</p>
 
     </div>
 
@@ -306,7 +294,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_EventDispatcher.js.html#l199"><code>src&#x2F;event&#x2F;EventDispatcher.js:199</code></a>
+        <a href="../files/src_event_EventDispatcher.js.html#l246"><code>src&#x2F;event&#x2F;EventDispatcher.js:246</code></a>
         </p>
 
 
@@ -336,6 +324,86 @@
             </ul>
         </div>
 
+
+
+</div>
+<div id="method_has" class="method item">
+    <h3 class="name"><code>has</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>type</code>
+                </li>
+                <li class="arg">
+                        <code>listener</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_event_EventDispatcher.js.html#l142"><code>src&#x2F;event&#x2F;EventDispatcher.js:142</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>listener 登録があるか調べます</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">type</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+
+                    <div class="param-description">
+                        <p>event type</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">listener</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+
+
+                    <div class="param-description">
+                        <p>event handler</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
+                    <p>event type へ listener 登録が有るか無いかの真偽値を返します</p>
+
+            </div>
+        </div>
 
 
 </div>
@@ -374,7 +442,8 @@
     </div>
 
     <div class="description">
-        
+        <p>EventDispatcher.has alias, EventDispatcher.has 使用推奨</p>
+
     </div>
 
         <div class="params">
@@ -440,7 +509,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_EventDispatcher.js.html#l240"><code>src&#x2F;event&#x2F;EventDispatcher.js:240</code></a>
+        <a href="../files/src_event_EventDispatcher.js.html#l288"><code>src&#x2F;event&#x2F;EventDispatcher.js:288</code></a>
         </p>
 
 
@@ -512,7 +581,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_EventDispatcher.js.html#l166"><code>src&#x2F;event&#x2F;EventDispatcher.js:166</code></a>
+        <a href="../files/src_event_EventDispatcher.js.html#l184"><code>src&#x2F;event&#x2F;EventDispatcher.js:184</code></a>
         </p>
 
 
@@ -520,7 +589,8 @@
     </div>
 
     <div class="description">
-        <p>removeEventListener alias</p>
+        <p>event type から listener を削除します</p>
+<p>メモリーリークの原因になるので不要になったlistenerは必ずremoveEventListenerを実行します</p>
 
     </div>
 
@@ -580,7 +650,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_EventDispatcher.js.html#l92"><code>src&#x2F;event&#x2F;EventDispatcher.js:92</code></a>
+        <a href="../files/src_event_EventDispatcher.js.html#l71"><code>src&#x2F;event&#x2F;EventDispatcher.js:71</code></a>
         </p>
 
 
@@ -588,7 +658,23 @@
     </div>
 
     <div class="description">
-        <p>addEventListener alias</p>
+        <p>イベントにハンドラを登録します</p>
+<p>ハンドラ内のthisはイベント発生元になるので注意が必要です</p>
+<p>this参照を変えないために bind を使用する方法があります</p>
+<pre class="code prettyprint"><code> function EventReceive () {
+     var example = new ExampleClass();
+
+     example.addEventListener( &quot;other&quot;, onOtherHandler );
+     example.addEventListener( &quot;example&quot;, this.onBoundHandler.bind( this ) );
+ }
+
+ EventReceive.prototype.onOtherHandler ( event ) {
+     console.log( this );// ExampleClass
+ }
+
+ EventReceive.prototype.onBoundHandler ( event ) {
+     console.log( this );// EventReceive
+ }</code></pre>
 
     </div>
 
@@ -648,7 +734,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_EventDispatcher.js.html#l152"><code>src&#x2F;event&#x2F;EventDispatcher.js:152</code></a>
+        <a href="../files/src_event_EventDispatcher.js.html#l168"><code>src&#x2F;event&#x2F;EventDispatcher.js:168</code></a>
         </p>
 
 
@@ -658,6 +744,7 @@
     <div class="description">
         <p>event type から listener を削除します</p>
 <p>メモリーリークの原因になるので不要になったlistenerは必ずremoveEventListenerを実行します</p>
+<p>EventDispatcher.off alias, EventDispatcher.off 使用推奨</p>
 
     </div>
 

@@ -1,16 +1,14 @@
-/**
- * @license inazumatv.com
+/*!
+ * Copyright (c) 2011-2015 inazumatv.com, inc.
  * @author (at)taikiken / http://inazumatv.com
  * @date 2015/03/24 - 12:10
- *
- * Copyright (c) 2011-2015 inazumatv.com, inc.
  *
  * Distributed under the terms of the MIT license.
  * http://www.opensource.org/licenses/mit-license.html
  *
  * This notice shall be included in all copies or substantial portions of the Software.
  *
- * @build 2015-11-02 15:12:21
+ * @build 2015-11-26 12:32:09
  * @version 0.9.4
  * @git https://github.com/taikiken/gasane.js
  *
@@ -149,13 +147,23 @@ var Gasane = Gasane || {};
      * @constructor
      */
     function EventDispatcher () {
-      //this._listeners = {};
     }
 
     var p = EventDispatcher.prototype;
-
     p.constructor = EventDispatcher;
 
+    /**
+     * EventDispatcher.on alias, EventDispatcher.on 使用推奨
+     *
+     * @method addEventListener
+     * @param {string} type event type
+     * @param {function} listener event handler
+     */
+    p.addEventListener = function ( type, listener ) {
+
+      this.on( type, listener );
+
+    };
     /**
      * イベントにハンドラを登録します
      *
@@ -178,17 +186,6 @@ var Gasane = Gasane || {};
      *          console.log( this );// EventReceive
      *      }
      *
-     * @method addEventListener
-     * @param {string} type event type
-     * @param {function} listener event handler
-     */
-    p.addEventListener = function ( type, listener ) {
-
-      this.on( type, listener );
-
-    };
-    /**
-     * addEventListener alias
      * @method on
      * @param {string} type event type
      * @param {function} listener event handler
@@ -196,6 +193,7 @@ var Gasane = Gasane || {};
     p.on = function ( type, listener ) {
 
       if ( typeof listener === 'undefined' ) {
+
         // listener undefined
         return;
 
@@ -224,8 +222,9 @@ var Gasane = Gasane || {};
     };
 
     /**
+     * EventDispatcher.has alias, EventDispatcher.has 使用推奨
+     *
      * @method hasEventListener
-     * @deprecated instead of has
      * @param {string} type event type
      * @param {function} listener event handler
      * @return {boolean} event type へ listener 登録が有るか無いかの真偽値を返します
@@ -237,6 +236,8 @@ var Gasane = Gasane || {};
     };
 
     /**
+     * listener 登録があるか調べます
+     *
      * @method has
      * @param {string} type event type
      * @param {function} listener event handler
@@ -265,6 +266,8 @@ var Gasane = Gasane || {};
      *
      * メモリーリークの原因になるので不要になったlistenerは必ずremoveEventListenerを実行します
      *
+     * EventDispatcher.off alias, EventDispatcher.off 使用推奨
+     *
      * @method removeEventListener
      * @param {string} type event type
      * @param {function} listener event handler
@@ -275,8 +278,6 @@ var Gasane = Gasane || {};
 
     };
     /**
-     * removeEventListener alias
-     *
      * event type から listener を削除します
      *
      * メモリーリークの原因になるので不要になったlistenerは必ずremoveEventListenerを実行します
@@ -307,10 +308,11 @@ var Gasane = Gasane || {};
         if ( index !== -1 ) {
 
           //listenersTypes.splice( index, 1 );
-          // 切り詰めると dispatch 中にすぐ off されると index が変わり続く listener が call できなくなるのでやめる
+          // dispatch 中にすぐ off （切り詰める）されると index が変わり続く listener が call できなくなるのでやめる
+          // 変わりにnull代入
           listenersTypes[ index ] = null;
 
-          // 全て null の時は [] にする
+          // 全て null の時は [] （空配列）にする
           found = false;
           for ( i = 0, limit = listenersTypes.length; i < limit; i = (i + 1)|0 ) {
 
@@ -435,6 +437,7 @@ var Gasane = Gasane || {};
     Gasane = window.Gasane;
 
   Gasane.Cycle = ( function (){
+
     var
       EventDispatcher = Gasane.EventDispatcher,
       animation = window.self.requestAnimationFrame,
@@ -481,7 +484,6 @@ var Gasane = Gasane || {};
     EventDispatcher.initialize( Cycle );
 
     var p = Cycle.prototype;
-
     p.constructor = Cycle;
 
     /**
@@ -492,6 +494,7 @@ var Gasane = Gasane || {};
     Cycle.start = function () {
 
       if ( !Cycle.started ) {
+
         // start when not started
         Cycle.started = true;
         Cycle.update();
@@ -513,6 +516,7 @@ var Gasane = Gasane || {};
     Cycle.stop = function () {
 
       if ( Cycle.started ) {
+
         // cancel when started
         cancel( Cycle.id );
         Cycle.started = false;
@@ -528,13 +532,16 @@ var Gasane = Gasane || {};
      * @static
      */
     Cycle.update = function () {
+
       // requestAnimationFrame loop
       Cycle.id = animation( Cycle.update );
       // event fire
       Cycle.dispatchEvent( Cycle.event );
+
     };
 
     return Cycle;
+
   }() );
 
 }( window ) );
@@ -551,6 +558,7 @@ var Gasane = Gasane || {};
     Gasane = window.Gasane;
 
   Gasane.Polling = ( function (){
+
     var
       EventDispatcher = Gasane.EventDispatcher,
       Cycle = Gasane.Cycle,
@@ -573,6 +581,7 @@ var Gasane = Gasane || {};
      * @constructor
      */
     function Polling ( polling ) {
+
       this._polling = polling;
       /**
        * @property _started
@@ -600,6 +609,7 @@ var Gasane = Gasane || {};
        * @private
        */
       this._event = { type: Polling.PAST, scope: this };
+
     }
 
     /**
@@ -644,6 +654,7 @@ var Gasane = Gasane || {};
     p.stop = function () {
 
       if ( this._started ) {
+
         // started
         this._started = false;
         Cycle.off( Cycle.UPDATE, this._boundUpdate );
@@ -686,6 +697,7 @@ var Gasane = Gasane || {};
       this.setPolling( polling );
 
       return this;
+
     };
     /**
      * @method now
@@ -718,6 +730,7 @@ var Gasane = Gasane || {};
     };
 
     return Polling;
+
   }() );
 
 }( window ) );
@@ -919,8 +932,8 @@ var Gasane = Gasane || {};
 
     };
 
-
     return Fps;
+
   }() );
 
 }( window ) );

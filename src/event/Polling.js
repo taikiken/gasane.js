@@ -10,6 +10,7 @@
     Gasane = window.Gasane;
 
   Gasane.Polling = ( function (){
+
     var
       EventDispatcher = Gasane.EventDispatcher,
       Cycle = Gasane.Cycle,
@@ -32,6 +33,7 @@
      * @constructor
      */
     function Polling ( polling ) {
+
       this._polling = polling;
       /**
        * @property _started
@@ -59,6 +61,7 @@
        * @private
        */
       this._event = { type: Polling.PAST, scope: this };
+
     }
 
     /**
@@ -103,6 +106,7 @@
     p.stop = function () {
 
       if ( this._started ) {
+
         // started
         this._started = false;
         Cycle.off( Cycle.UPDATE, this._boundUpdate );
@@ -145,6 +149,7 @@
       this.setPolling( polling );
 
       return this;
+
     };
     /**
      * @method now
@@ -177,6 +182,7 @@
     };
 
     return Polling;
+
   }() );
 
 }( window ) );

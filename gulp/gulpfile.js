@@ -169,14 +169,16 @@ gulp.task( 'script-build', function () {
 
 } );
 
-// build with docs
-gulp.task( 'script-build-api', function () {
+gulp.task( 'build', ['script-build'], function () {} );
 
-  runSequence(
-    'script-concat',
-    'script-min',
-    'script-version',
-    'script-docs'
-  );
-
-} );
+//// build with docs
+//gulp.task( 'script-build-api', function () {
+//
+//  runSequence(
+//    'script-concat',
+//    'script-min',
+//    'script-version',
+//    'script-docs'
+//  );
+//
+//} );

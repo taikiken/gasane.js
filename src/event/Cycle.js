@@ -13,6 +13,7 @@
     Gasane = window.Gasane;
 
   Gasane.Cycle = ( function (){
+
     var
       EventDispatcher = Gasane.EventDispatcher,
       animation = window.self.requestAnimationFrame,
@@ -59,7 +60,6 @@
     EventDispatcher.initialize( Cycle );
 
     var p = Cycle.prototype;
-
     p.constructor = Cycle;
 
     /**
@@ -70,6 +70,7 @@
     Cycle.start = function () {
 
       if ( !Cycle.started ) {
+
         // start when not started
         Cycle.started = true;
         Cycle.update();
@@ -91,6 +92,7 @@
     Cycle.stop = function () {
 
       if ( Cycle.started ) {
+
         // cancel when started
         cancel( Cycle.id );
         Cycle.started = false;
@@ -106,13 +108,16 @@
      * @static
      */
     Cycle.update = function () {
+
       // requestAnimationFrame loop
       Cycle.id = animation( Cycle.update );
       // event fire
       Cycle.dispatchEvent( Cycle.event );
+
     };
 
     return Cycle;
+
   }() );
 
 }( window ) );

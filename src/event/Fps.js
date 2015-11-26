@@ -195,8 +195,8 @@
 
     };
 
-
     return Fps;
+
   }() );
 
 }( window ) );
