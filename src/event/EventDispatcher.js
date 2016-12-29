@@ -105,9 +105,9 @@
       return;
     }
 
-    // if (typeof this.listeners === 'undefined') {
-    //   this.listeners = {};
-    // }
+    if (typeof this.listeners === 'undefined') {
+      this.listeners = {};
+    }
 
     var listeners = this.listeners;
 

@@ -8,7 +8,7 @@
  *
  * This notice shall be included in all copies or substantial portions of the Software.
  *
- * @build 2016-12-29 22:01:11
+ * @build 2016-12-29 22:07:42
  * @version 0.9.9
  * @git https://github.com/taikiken/gasane.js
  *
@@ -187,9 +187,9 @@ var Gasane = window.Gasane || {};
       return;
     }
 
-    // if (typeof this.listeners === 'undefined') {
-    //   this.listeners = {};
-    // }
+    if (typeof this.listeners === 'undefined') {
+      this.listeners = {};
+    }
 
     var listeners = this.listeners;
 
