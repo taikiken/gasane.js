@@ -3,13 +3,13 @@
  *
  * @module Gasane
  */
-( function ( window ){
+( function( window ){
   'use strict';
 
   var
     Gasane = window.Gasane;
 
-  Gasane.Fps = ( function (){
+  Gasane.Fps = ( function(){
     var
       EventDispatcher = Gasane.EventDispatcher,
       Cycle = Gasane.Cycle,
@@ -20,7 +20,7 @@
      * 24fps毎に実行する
      *
      *      var fps = new Gasane.Fps( 24 );
-     *      fps.on( Gasane.Fps.ENTER_FRAME, function () {
+     *      fps.on( Gasane.Fps.ENTER_FRAME, function() {
      *        //
      *      } );
      *
@@ -91,7 +91,7 @@
      * @method start
      * @return {Fps}
      */
-    p.start = function () {
+    p.start = function() {
 
       if ( !this._started ) {
 
@@ -113,7 +113,7 @@
      * @method stop
      * @return {Fps}
      */
-    p.stop = function () {
+    p.stop = function() {
 
       if ( this._started ) {
 
@@ -132,7 +132,7 @@
      * @method fps
      * @return {int} 現在 fps を返します
      */
-    p.fps = function () {
+    p.fps = function() {
 
       return this._fps;
 
@@ -142,7 +142,7 @@
      * @param {int} fps fps を設定します
      * @return {Fps}
      */
-    p.setFps = function ( fps ) {
+    p.setFps = function( fps ) {
 
       this._start = this.now();
       this._polling = 1000 / fps;
@@ -157,7 +157,7 @@
      * @param {int} fps fps を変更します
      * @return {Fps}
      */
-    p.changeFps = function ( fps ) {
+    p.changeFps = function( fps ) {
 
       this.setFps( fps );
 
@@ -168,7 +168,7 @@
      * @method now
      * @return {number} 現在時間(timestamp)を返します
      */
-    p.now = function () {
+    p.now = function() {
 
       return _now();
 
@@ -177,7 +177,7 @@
      * Cycle.update event handler
      * @method update
      */
-    p.update = function () {
+    p.update = function() {
 
       var
         now = this.now(),

@@ -3,13 +3,13 @@
  *
  * @module Gasane
  */
-( function ( window ){
+( function( window ){
   'use strict';
 
   var
     Gasane = window.Gasane;
 
-  Gasane.Polling = ( function (){
+  Gasane.Polling = ( function(){
 
     var
       EventDispatcher = Gasane.EventDispatcher,
@@ -21,7 +21,7 @@
      *
      *      // 1sec(1000ms)毎に実行する
      *      var polling = new Gasane.Polling( 1000 );
-     *      polling.on( Gasane.Polling.PAST, function () {
+     *      polling.on( Gasane.Polling.PAST, function() {
      *        //
      *      } );
      *
@@ -81,7 +81,7 @@
      * @method start
      * @return {Polling}
      */
-    p.start = function () {
+    p.start = function() {
 
       if ( !this._started ) {
 
@@ -103,7 +103,7 @@
      * @method stop
      * @return {Polling}
      */
-    p.stop = function () {
+    p.stop = function() {
 
       if ( this._started ) {
 
@@ -120,7 +120,7 @@
      * @method polling
      * @return {Number}
      */
-    p.polling = function () {
+    p.polling = function() {
 
       return this._polling;
 
@@ -130,7 +130,7 @@
      * @param {number} polling
      * @return {Polling}
      */
-    p.setPolling = function ( polling ) {
+    p.setPolling = function( polling ) {
 
       this._start = this.now();
       this._polling = polling;
@@ -144,7 +144,7 @@
      * @param {number} polling
      * @return {Polling}
      */
-    p.changePolling = function ( polling ) {
+    p.changePolling = function( polling ) {
 
       this.setPolling( polling );
 
@@ -155,7 +155,7 @@
      * @method now
      * @return {number} 現在時間(timestamp)を返します
      */
-    p.now = function () {
+    p.now = function() {
 
       return _now();
 
@@ -164,7 +164,7 @@
      * Cycle.update event handler
      * @method update
      */
-    p.update = function () {
+    p.update = function() {
 
       var
         now = this.now(),
