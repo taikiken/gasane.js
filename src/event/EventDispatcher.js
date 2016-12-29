@@ -1,26 +1,8 @@
 /* jslint -W016 */
 /**
- *
- * ## カスタム Event を管理します
- *
- * 1. 必要なClassでmixinします
- * 2. mixin 後下記の6関数が使用できるようになります
- *
- *
- *      addEventListener
- *      hasEventListener
- *      removeEventListener
- *      dispatchEvent
- *      on
- *      off
- *
- *      function SomeClass () {}
- *      // mixin
- *      Gasane.EventDispatcher.initialize( SomeClass.prototype );
- *
+ * Fps, Polling 時間管理eventを発行します
  *
  * @module Gasane
- *
  */
 (function(window) {
   'use strict';
@@ -52,6 +34,7 @@
   function EventDispatcher() {
     /**
      * eventType を key にした listener(function) を配列にし管理します
+     * @property listeners
      * @type {{}}
      */
     this.listeners = {};
@@ -285,13 +268,15 @@
    * - on
    * - off
    *
-   *      function SomeClass () {}
-   *      // mixin
-   *      Gasane.EventDispatcher.initialize(SomeClass.prototype);
+   * ```
+   * function SomeClass () {}
+   * // mixin
+   * Gasane.EventDispatcher.initialize(SomeClass.prototype);
    *
-   *      var someObject = {};
-   *      // mixin
-   *      Gasane.EventDispatcher.initialize(someObject);
+   * var someObject = {};
+   * // mixin
+   * Gasane.EventDispatcher.initialize(someObject);
+   * ```
    *
    * @method initialize
    * @param {Object} object mixin する class prototype

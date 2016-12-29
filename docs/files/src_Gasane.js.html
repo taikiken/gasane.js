@@ -104,38 +104,32 @@
  *
  * Polyfill methods として以下の関数を用意しています。
  *
- *    Date.now
- *    requestAnimationFrame
- *    cancelAnimationFrame
+ * - Date.now
+ * - requestAnimationFrame
+ * - cancelAnimationFrame
  *
  * @module Gasane
+ * @property Gasane
  * @type {{}}
  */
-var Gasane = Gasane || {};
+var Gasane = window.Gasane || {};
 
-( function ( window ){
+(function(window) {
   &#x27;use strict&#x27;;
-
   var
     self = window.self;
-
-
   // Date.now
   // https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date/now
-  if ( !Date.now ) {
-
+  if (!Date.now) {
     Date.now = function now() {
-
       return new Date().getTime();
-
     };
-
   }
 
   // requestAnimationFrame
   // http://paulirish.com/2011/requestanimationframe-for-smart-animating/
   // http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
-  ( function (){
+  (function() {
     var
       lastTime = 0,
       vendors = [ &#x27;ms&#x27;, &#x27;moz&#x27;, &#x27;webkit&#x27;, &#x27;o&#x27; ],
@@ -144,41 +138,34 @@ var Gasane = Gasane || {};
       currTime,
       timeToCall,
       id,
-      _max;
+      mathMax;
 
-    for ( x = 0, limit = vendors.length; x &lt; limit &amp;&amp; !self.requestAnimationFrame; ++ x ) {
-
+    for (x = 0, limit = vendors.length; x &lt; limit &amp;&amp; !self.requestAnimationFrame; ++x) {
       self.requestAnimationFrame = self[ vendors[ x ] + &#x27;RequestAnimationFrame&#x27; ];
       self.cancelAnimationFrame = self[ vendors[ x ] + &#x27;CancelAnimationFrame&#x27; ] || self[ vendors[ x ] + &#x27;CancelRequestAnimationFrame&#x27; ];
-
     }
 
-    if ( self.requestAnimationFrame === undefined &amp;&amp; self.setTimeout !== undefined ) {
+    if (typeof self.requestAnimationFrame === &#x27;undefined&#x27; &amp;&amp; typeof self.setTimeout !== &#x27;undefined&#x27;) {
+      mathMax = Math.max;
 
-      _max = Math.max;
-
-      self.requestAnimationFrame = function ( callback ) {
-
+      self.requestAnimationFrame = function(callback) {
         currTime = Date.now();
-        timeToCall = _max( 0, 16 - ( currTime - lastTime ) );
-        id = self.setTimeout( function() { callback( currTime + timeToCall ); }, timeToCall );
-
+        timeToCall = mathMax(0, 16 - (currTime - lastTime));
+        id = self.setTimeout(function() {
+          callback( currTime + timeToCall );
+        }, timeToCall);
         lastTime = currTime + timeToCall;
-
         return id;
-
       };
-
     }
 
-    if( self.cancelAnimationFrame === undefined &amp;&amp; self.clearTimeout !== undefined ) {
-
-      self.cancelAnimationFrame = function ( id ) { self.clearTimeout( id ); };
-
+    if(typeof self.cancelAnimationFrame === &#x27;undefined&#x27; &amp;&amp; typeof self.clearTimeout !== &#x27;undefined&#x27;) {
+      self.cancelAnimationFrame = function(timerId) {
+        self.clearTimeout(timerId);
+      };
     }
-
-  }() );
-}( window ) );
+  }());
+}(window));
 
     </pre>
 </div>

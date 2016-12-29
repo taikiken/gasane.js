@@ -1,5 +1,5 @@
-/**
- * 指定 fps(frame rate per second)毎にeventを通知します
+  /**
+ * Fps, Polling 時間管理eventを発行します
  *
  * @module Gasane
  */
@@ -13,6 +13,7 @@
     dateNow = Date.now;
 
   /**
+   * 指定 fps(frame rate per second)毎にeventを通知します
    *
    * 24fps毎に実行する
    *
@@ -30,42 +31,38 @@
    */
   function Fps(fps) {
     /**
+     * frame rate
      * @property fps
      * @type {Number}
-     * @private
      */
     this.fps = fps;
     /**
+     * start flag
      * @property started
      * @type {boolean}
-     * @private
      */
     this.started = false;
     /**
      * frame 開始時間, frame rate 計算に使用
      * @property startId
      * @type {number}
-     * @private
      */
     this.startId = 0;
     /**
      * frame 間時間, frame rate 計算に使用。 1000 / fps
      * @property polling
      * @type {number}
-     * @private
      */
     this.polling = 0;
     /**
      * Cycle.UPDATE event handler binding
      * @property boundUpdate
      * @type {function(this:Fps)|*}
-     * @private
      */
     this.boundUpdate = this.update.bind( this );
     /**
      * @property event
      * @type {{type: string, scope: Fps}}
-     * @private
      */
     this.event = { type: Fps.ENTER_FRAME, scope: this };
   }

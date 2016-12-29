@@ -1,5 +1,5 @@
 /**
- * polling指定時間（ミリセカンド）毎に通知を行います
+ * Fps, Polling 時間管理eventを発行します
  *
  * @module Gasane
  */
@@ -37,27 +37,23 @@
     /**
      * @property started
      * @type {boolean}
-     * @private
      */
     this.started = false;
     /**
      * frame 開始時間, frame rate 計算に使用
      * @property startId
      * @type {number}
-     * @private
      */
     this.startId = 0;
     /**
      * Cycle.UPDATE event handler binding
      * @property boundUpdate
      * @type {function(this:Fps)|*}
-     * @private
      */
     this.boundUpdate = this.update.bind( this );
     /**
      * @property event
      * @type {{type: string, scope: Polling}}
-     * @private
      */
     this.event = { type: Polling.PAST, scope: this };
   }

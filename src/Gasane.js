@@ -18,11 +18,12 @@
  *
  * Polyfill methods として以下の関数を用意しています。
  *
- *    Date.now
- *    requestAnimationFrame
- *    cancelAnimationFrame
+ * - Date.now
+ * - requestAnimationFrame
+ * - cancelAnimationFrame
  *
  * @module Gasane
+ * @property Gasane
  * @type {{}}
  */
 var Gasane = window.Gasane || {};

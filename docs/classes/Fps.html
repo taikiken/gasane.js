@@ -91,7 +91,7 @@
 
 
         <div class="foundat">
-            Defined in: <a href="../files/src_event_Fps.js.html#l18"><code>src&#x2F;event&#x2F;Fps.js:18</code></a>
+            Defined in: <a href="../files/src_event_Fps.js.html#l15"><code>src&#x2F;event&#x2F;Fps.js:15</code></a>
         </div>
 
             Module: <a href="../modules/Gasane.html">Gasane</a>
@@ -100,12 +100,14 @@
 
 
 <div class="box intro">
-    <p>24fps毎に実行する
-var fps = new Gasane.Fps( 24 );
-fps.on( Gasane.Fps.ENTER_FRAME, function () {
-//
-} );
-fps.start();</p>
+    <p>指定 fps(frame rate per second)毎にeventを通知します</p>
+<p>24fps毎に実行する</p>
+<pre class="code prettyprint"><code> var fps = new Gasane.Fps( 24 );
+ fps.on( Gasane.Fps.ENTER_FRAME, function() {
+   //
+ } );
+
+ fps.start();</code></pre>
 
 </div>
 
@@ -132,7 +134,7 @@ fps.start();</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_Fps.js.html#l18"><code>src&#x2F;event&#x2F;Fps.js:18</code></a>
+        <a href="../files/src_event_Fps.js.html#l15"><code>src&#x2F;event&#x2F;Fps.js:15</code></a>
         </p>
 
 
@@ -195,10 +197,6 @@ fps.start();</p>
                                 <a href="#method_dispatchEvent">dispatchEvent</a>
 
                             </li>
-                            <li class="index-item method">
-                                <a href="#method_fps">fps</a>
-
-                            </li>
                             <li class="index-item method inherited">
                                 <a href="#method_has">has</a>
 
@@ -246,28 +244,32 @@ fps.start();</p>
                     <h3>Properties</h3>
 
                     <ul class="index-list properties">
-                            <li class="index-item property private">
-                                <a href="#property__boundUpdate">_boundUpdate</a>
+                            <li class="index-item property">
+                                <a href="#property_boundUpdate">boundUpdate</a>
 
                             </li>
-                            <li class="index-item property private">
-                                <a href="#property__event">_event</a>
+                            <li class="index-item property">
+                                <a href="#property_event">event</a>
 
                             </li>
-                            <li class="index-item property private">
-                                <a href="#property__fps">_fps</a>
+                            <li class="index-item property">
+                                <a href="#property_fps">fps</a>
 
                             </li>
-                            <li class="index-item property private">
-                                <a href="#property__polling">_polling</a>
+                            <li class="index-item property inherited">
+                                <a href="#property_listeners">listeners</a>
 
                             </li>
-                            <li class="index-item property private">
-                                <a href="#property__start">_start</a>
+                            <li class="index-item property">
+                                <a href="#property_polling">polling</a>
 
                             </li>
-                            <li class="index-item property private">
-                                <a href="#property__started">_started</a>
+                            <li class="index-item property">
+                                <a href="#property_started">started</a>
+
+                            </li>
+                            <li class="index-item property">
+                                <a href="#property_startId">startId</a>
 
                             </li>
                     </ul>
@@ -314,7 +316,7 @@ fps.start();</p>
     <div class="meta">
                 <p>Inherited from
                 <a href="../classes/EventDispatcher.html#method_addEventListener">EventDispatcher</a>:
-        <a href="../files/src_event_EventDispatcher.js.html#l59"><code>src&#x2F;event&#x2F;EventDispatcher.js:59</code></a>
+        <a href="../files/src_event_EventDispatcher.js.html#l48"><code>src&#x2F;event&#x2F;EventDispatcher.js:48</code></a>
         </p>
 
 
@@ -370,7 +372,7 @@ fps.start();</p>
         </div>
 
         <span class="returns-inline">
-            <span class="type"><a href="../classes/Fps.html" class="crosslink">Fps</a></span>
+            <span class="type">Int</span>
         </span>
 
 
@@ -382,7 +384,7 @@ fps.start();</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_Fps.js.html#l154"><code>src&#x2F;event&#x2F;Fps.js:154</code></a>
+        <a href="../files/src_event_Fps.js.html#l131"><code>src&#x2F;event&#x2F;Fps.js:131</code></a>
         </p>
 
 
@@ -416,7 +418,9 @@ fps.start();</p>
             <h4>Returns:</h4>
 
             <div class="returns-description">
-                        <span class="type"><a href="../classes/Fps.html" class="crosslink">Fps</a></span>:
+                        <span class="type">Int</span>:
+                    <p>設定した fps を返します</p>
+
             </div>
         </div>
 
@@ -443,7 +447,7 @@ fps.start();</p>
     <div class="meta">
                 <p>Inherited from
                 <a href="../classes/EventDispatcher.html#method_dispatchEvent">EventDispatcher</a>:
-        <a href="../files/src_event_EventDispatcher.js.html#l246"><code>src&#x2F;event&#x2F;EventDispatcher.js:246</code></a>
+        <a href="../files/src_event_EventDispatcher.js.html#l226"><code>src&#x2F;event&#x2F;EventDispatcher.js:226</code></a>
         </p>
 
 
@@ -476,48 +480,6 @@ fps.start();</p>
 
 
 </div>
-<div id="method_fps" class="method item">
-    <h3 class="name"><code>fps</code></h3>
-
-        <span class="paren">()</span>
-
-        <span class="returns-inline">
-            <span class="type">Int</span>
-        </span>
-
-
-
-
-
-
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/src_event_Fps.js.html#l131"><code>src&#x2F;event&#x2F;Fps.js:131</code></a>
-        </p>
-
-
-
-    </div>
-
-    <div class="description">
-        
-    </div>
-
-
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                        <span class="type">Int</span>:
-                    <p>現在 fps を返します</p>
-
-            </div>
-        </div>
-
-
-</div>
 <div id="method_has" class="method item inherited">
     <h3 class="name"><code>has</code></h3>
 
@@ -545,7 +507,7 @@ fps.start();</p>
     <div class="meta">
                 <p>Inherited from
                 <a href="../classes/EventDispatcher.html#method_has">EventDispatcher</a>:
-        <a href="../files/src_event_EventDispatcher.js.html#l142"><code>src&#x2F;event&#x2F;EventDispatcher.js:142</code></a>
+        <a href="../files/src_event_EventDispatcher.js.html#l118"><code>src&#x2F;event&#x2F;EventDispatcher.js:118</code></a>
         </p>
 
 
@@ -625,7 +587,7 @@ fps.start();</p>
     <div class="meta">
                 <p>Inherited from
                 <a href="../classes/EventDispatcher.html#method_hasEventListener">EventDispatcher</a>:
-        <a href="../files/src_event_EventDispatcher.js.html#l128"><code>src&#x2F;event&#x2F;EventDispatcher.js:128</code></a>
+        <a href="../files/src_event_EventDispatcher.js.html#l106"><code>src&#x2F;event&#x2F;EventDispatcher.js:106</code></a>
         </p>
 
 
@@ -696,7 +658,7 @@ fps.start();</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_Fps.js.html#l167"><code>src&#x2F;event&#x2F;Fps.js:167</code></a>
+        <a href="../files/src_event_Fps.js.html#l140"><code>src&#x2F;event&#x2F;Fps.js:140</code></a>
         </p>
 
 
@@ -744,7 +706,7 @@ fps.start();</p>
     <div class="meta">
                 <p>Inherited from
                 <a href="../classes/EventDispatcher.html#method_off">EventDispatcher</a>:
-        <a href="../files/src_event_EventDispatcher.js.html#l184"><code>src&#x2F;event&#x2F;EventDispatcher.js:184</code></a>
+        <a href="../files/src_event_EventDispatcher.js.html#l151"><code>src&#x2F;event&#x2F;EventDispatcher.js:151</code></a>
         </p>
 
 
@@ -813,7 +775,7 @@ fps.start();</p>
     <div class="meta">
                 <p>Inherited from
                 <a href="../classes/EventDispatcher.html#method_on">EventDispatcher</a>:
-        <a href="../files/src_event_EventDispatcher.js.html#l71"><code>src&#x2F;event&#x2F;EventDispatcher.js:71</code></a>
+        <a href="../files/src_event_EventDispatcher.js.html#l58"><code>src&#x2F;event&#x2F;EventDispatcher.js:58</code></a>
         </p>
 
 
@@ -897,7 +859,7 @@ fps.start();</p>
     <div class="meta">
                 <p>Inherited from
                 <a href="../classes/EventDispatcher.html#method_removeEventListener">EventDispatcher</a>:
-        <a href="../files/src_event_EventDispatcher.js.html#l168"><code>src&#x2F;event&#x2F;EventDispatcher.js:168</code></a>
+        <a href="../files/src_event_EventDispatcher.js.html#l137"><code>src&#x2F;event&#x2F;EventDispatcher.js:137</code></a>
         </p>
 
 
@@ -955,7 +917,7 @@ fps.start();</p>
         </div>
 
         <span class="returns-inline">
-            <span class="type"><a href="../classes/Fps.html" class="crosslink">Fps</a></span>
+            <span class="type">Int</span>
         </span>
 
 
@@ -967,7 +929,7 @@ fps.start();</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_Fps.js.html#l140"><code>src&#x2F;event&#x2F;Fps.js:140</code></a>
+        <a href="../files/src_event_Fps.js.html#l120"><code>src&#x2F;event&#x2F;Fps.js:120</code></a>
         </p>
 
 
@@ -1000,7 +962,9 @@ fps.start();</p>
             <h4>Returns:</h4>
 
             <div class="returns-description">
-                        <span class="type"><a href="../classes/Fps.html" class="crosslink">Fps</a></span>:
+                        <span class="type">Int</span>:
+                    <p>設定した fps を返します</p>
+
             </div>
         </div>
 
@@ -1012,7 +976,7 @@ fps.start();</p>
         <span class="paren">()</span>
 
         <span class="returns-inline">
-            <span class="type"><a href="../classes/Fps.html" class="crosslink">Fps</a></span>
+            <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
         </span>
 
 
@@ -1024,7 +988,7 @@ fps.start();</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_Fps.js.html#l89"><code>src&#x2F;event&#x2F;Fps.js:89</code></a>
+        <a href="../files/src_event_Fps.js.html#l83"><code>src&#x2F;event&#x2F;Fps.js:83</code></a>
         </p>
 
 
@@ -1041,7 +1005,9 @@ fps.start();</p>
             <h4>Returns:</h4>
 
             <div class="returns-description">
-                        <span class="type"><a href="../classes/Fps.html" class="crosslink">Fps</a></span>:
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
+                    <p>start flag を返します</p>
+
             </div>
         </div>
 
@@ -1053,7 +1019,7 @@ fps.start();</p>
         <span class="paren">()</span>
 
         <span class="returns-inline">
-            <span class="type"><a href="../classes/Fps.html" class="crosslink">Fps</a></span>
+            <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
         </span>
 
 
@@ -1065,7 +1031,7 @@ fps.start();</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_Fps.js.html#l111"><code>src&#x2F;event&#x2F;Fps.js:111</code></a>
+        <a href="../files/src_event_Fps.js.html#l99"><code>src&#x2F;event&#x2F;Fps.js:99</code></a>
         </p>
 
 
@@ -1082,7 +1048,9 @@ fps.start();</p>
             <h4>Returns:</h4>
 
             <div class="returns-description">
-                        <span class="type"><a href="../classes/Fps.html" class="crosslink">Fps</a></span>:
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
+                    <p>start flag を返します</p>
+
             </div>
         </div>
 
@@ -1103,7 +1071,7 @@ fps.start();</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_Fps.js.html#l176"><code>src&#x2F;event&#x2F;Fps.js:176</code></a>
+        <a href="../files/src_event_Fps.js.html#l147"><code>src&#x2F;event&#x2F;Fps.js:147</code></a>
         </p>
 
 
@@ -1124,19 +1092,18 @@ fps.start();</p>
             <div id="properties" class="api-class-tabpanel">
                 <h2 class="off-left">Properties</h2>
 
-<div id="property__boundUpdate" class="property item private">
-    <h3 class="name"><code>_boundUpdate</code></h3>
+<div id="property_boundUpdate" class="property item">
+    <h3 class="name"><code>boundUpdate</code></h3>
     <span class="type">Function(this:Fps) | </span>
 
 
-        <span class="flag private">private</span>
 
 
 
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_Fps.js.html#l61"><code>src&#x2F;event&#x2F;Fps.js:61</code></a>
+        <a href="../files/src_event_Fps.js.html#l57"><code>src&#x2F;event&#x2F;Fps.js:57</code></a>
         </p>
 
 
@@ -1150,19 +1117,18 @@ fps.start();</p>
 
 
 </div>
-<div id="property__event" class="property item private">
-    <h3 class="name"><code>_event</code></h3>
+<div id="property_event" class="property item">
+    <h3 class="name"><code>event</code></h3>
     <span class="type">Type: string, scope: Fps</span>
 
 
-        <span class="flag private">private</span>
 
 
 
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_Fps.js.html#l68"><code>src&#x2F;event&#x2F;Fps.js:68</code></a>
+        <a href="../files/src_event_Fps.js.html#l63"><code>src&#x2F;event&#x2F;Fps.js:63</code></a>
         </p>
 
 
@@ -1175,44 +1141,68 @@ fps.start();</p>
 
 
 </div>
-<div id="property__fps" class="property item private">
-    <h3 class="name"><code>_fps</code></h3>
+<div id="property_fps" class="property item">
+    <h3 class="name"><code>fps</code></h3>
     <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
 
 
-        <span class="flag private">private</span>
 
 
 
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_Fps.js.html#l35"><code>src&#x2F;event&#x2F;Fps.js:35</code></a>
+        <a href="../files/src_event_Fps.js.html#l33"><code>src&#x2F;event&#x2F;Fps.js:33</code></a>
         </p>
 
 
     </div>
 
     <div class="description">
-        
+        <p>frame rate</p>
+
     </div>
 
 
 
 </div>
-<div id="property__polling" class="property item private">
-    <h3 class="name"><code>_polling</code></h3>
+<div id="property_listeners" class="property item inherited">
+    <h3 class="name"><code>listeners</code></h3>
+    <span class="type"></span>
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/EventDispatcher.html#property_listeners">EventDispatcher</a>:
+        <a href="../files/src_event_EventDispatcher.js.html#l35"><code>src&#x2F;event&#x2F;EventDispatcher.js:35</code></a>
+        </p>
+
+
+    </div>
+
+    <div class="description">
+        <p>eventType を key にした listener(function) を配列にし管理します</p>
+
+    </div>
+
+
+
+</div>
+<div id="property_polling" class="property item">
+    <h3 class="name"><code>polling</code></h3>
     <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
 
 
-        <span class="flag private">private</span>
 
 
 
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_Fps.js.html#l54"><code>src&#x2F;event&#x2F;Fps.js:54</code></a>
+        <a href="../files/src_event_Fps.js.html#l51"><code>src&#x2F;event&#x2F;Fps.js:51</code></a>
         </p>
 
 
@@ -1226,19 +1216,43 @@ fps.start();</p>
 
 
 </div>
-<div id="property__start" class="property item private">
-    <h3 class="name"><code>_start</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+<div id="property_started" class="property item">
+    <h3 class="name"><code>started</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
 
 
-        <span class="flag private">private</span>
 
 
 
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_Fps.js.html#l47"><code>src&#x2F;event&#x2F;Fps.js:47</code></a>
+        <a href="../files/src_event_Fps.js.html#l39"><code>src&#x2F;event&#x2F;Fps.js:39</code></a>
+        </p>
+
+
+    </div>
+
+    <div class="description">
+        <p>start flag</p>
+
+    </div>
+
+
+
+</div>
+<div id="property_startId" class="property item">
+    <h3 class="name"><code>startId</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_event_Fps.js.html#l45"><code>src&#x2F;event&#x2F;Fps.js:45</code></a>
         </p>
 
 
@@ -1247,31 +1261,6 @@ fps.start();</p>
     <div class="description">
         <p>frame 開始時間, frame rate 計算に使用</p>
 
-    </div>
-
-
-
-</div>
-<div id="property__started" class="property item private">
-    <h3 class="name"><code>_started</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-
-
-        <span class="flag private">private</span>
-
-
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/src_event_Fps.js.html#l41"><code>src&#x2F;event&#x2F;Fps.js:41</code></a>
-        </p>
-
-
-    </div>
-
-    <div class="description">
-        
     </div>
 
 
@@ -1295,7 +1284,7 @@ fps.start();</p>
                         <div class="meta">
                                     <p>
                                     Defined in
-                            <a href="../files/src_event_Fps.js.html#l76"><code>src&#x2F;event&#x2F;Fps.js:76</code></a>
+                            <a href="../files/src_event_Fps.js.html#l70"><code>src&#x2F;event&#x2F;Fps.js:70</code></a>
                             </p>
                     
                     

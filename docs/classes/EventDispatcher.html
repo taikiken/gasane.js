@@ -85,7 +85,7 @@
 
 
         <div class="foundat">
-            Defined in: <a href="../files/src_event_EventDispatcher.js.html#l31"><code>src&#x2F;event&#x2F;EventDispatcher.js:31</code></a>
+            Defined in: <a href="../files/src_event_EventDispatcher.js.html#l12"><code>src&#x2F;event&#x2F;EventDispatcher.js:12</code></a>
         </div>
 
             Module: <a href="../modules/Gasane.html">Gasane</a>
@@ -130,7 +130,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_EventDispatcher.js.html#l31"><code>src&#x2F;event&#x2F;EventDispatcher.js:31</code></a>
+        <a href="../files/src_event_EventDispatcher.js.html#l12"><code>src&#x2F;event&#x2F;EventDispatcher.js:12</code></a>
         </p>
 
 
@@ -152,6 +152,7 @@
         <li class="api-class-tab index"><a href="#index">Index</a></li>
 
             <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
+            <li class="api-class-tab properties"><a href="#properties">Properties</a></li>
     </ul>
 
     <div>
@@ -198,6 +199,16 @@
                     </ul>
                 </div>
 
+                <div class="index-section properties">
+                    <h3>Properties</h3>
+
+                    <ul class="index-list properties">
+                            <li class="index-item property">
+                                <a href="#property_listeners">listeners</a>
+
+                            </li>
+                    </ul>
+                </div>
 
 
         </div>
@@ -229,7 +240,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_EventDispatcher.js.html#l59"><code>src&#x2F;event&#x2F;EventDispatcher.js:59</code></a>
+        <a href="../files/src_event_EventDispatcher.js.html#l48"><code>src&#x2F;event&#x2F;EventDispatcher.js:48</code></a>
         </p>
 
 
@@ -294,7 +305,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_EventDispatcher.js.html#l246"><code>src&#x2F;event&#x2F;EventDispatcher.js:246</code></a>
+        <a href="../files/src_event_EventDispatcher.js.html#l226"><code>src&#x2F;event&#x2F;EventDispatcher.js:226</code></a>
         </p>
 
 
@@ -354,7 +365,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_EventDispatcher.js.html#l142"><code>src&#x2F;event&#x2F;EventDispatcher.js:142</code></a>
+        <a href="../files/src_event_EventDispatcher.js.html#l118"><code>src&#x2F;event&#x2F;EventDispatcher.js:118</code></a>
         </p>
 
 
@@ -434,7 +445,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_EventDispatcher.js.html#l128"><code>src&#x2F;event&#x2F;EventDispatcher.js:128</code></a>
+        <a href="../files/src_event_EventDispatcher.js.html#l106"><code>src&#x2F;event&#x2F;EventDispatcher.js:106</code></a>
         </p>
 
 
@@ -509,7 +520,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_EventDispatcher.js.html#l288"><code>src&#x2F;event&#x2F;EventDispatcher.js:288</code></a>
+        <a href="../files/src_event_EventDispatcher.js.html#l259"><code>src&#x2F;event&#x2F;EventDispatcher.js:259</code></a>
         </p>
 
 
@@ -527,13 +538,14 @@
 <li>on</li>
 <li>off</li>
 </ul>
-<pre class="code prettyprint"><code> function SomeClass () {}
- // mixin
- Gasane.EventDispatcher.initialize( SomeClass.prototype );
+<pre class="code prettyprint"><code>function SomeClass () {}
+// mixin
+Gasane.EventDispatcher.initialize(SomeClass.prototype);
 
- var someObject = {};
- // mixin
- Gasane.EventDispatcher.initialize( someObject );</code></pre>
+var someObject = {};
+// mixin
+Gasane.EventDispatcher.initialize(someObject);
+</code></pre>
 
     </div>
 
@@ -547,7 +559,8 @@
 
 
                     <div class="param-description">
-                         
+                        <p>mixin する class prototype</p>
+
                     </div>
 
                 </li>
@@ -581,7 +594,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_EventDispatcher.js.html#l184"><code>src&#x2F;event&#x2F;EventDispatcher.js:184</code></a>
+        <a href="../files/src_event_EventDispatcher.js.html#l151"><code>src&#x2F;event&#x2F;EventDispatcher.js:151</code></a>
         </p>
 
 
@@ -650,7 +663,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_EventDispatcher.js.html#l71"><code>src&#x2F;event&#x2F;EventDispatcher.js:71</code></a>
+        <a href="../files/src_event_EventDispatcher.js.html#l58"><code>src&#x2F;event&#x2F;EventDispatcher.js:58</code></a>
         </p>
 
 
@@ -734,7 +747,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_event_EventDispatcher.js.html#l168"><code>src&#x2F;event&#x2F;EventDispatcher.js:168</code></a>
+        <a href="../files/src_event_EventDispatcher.js.html#l137"><code>src&#x2F;event&#x2F;EventDispatcher.js:137</code></a>
         </p>
 
 
@@ -782,6 +795,35 @@
 </div>
             </div>
 
+            <div id="properties" class="api-class-tabpanel">
+                <h2 class="off-left">Properties</h2>
+
+<div id="property_listeners" class="property item">
+    <h3 class="name"><code>listeners</code></h3>
+    <span class="type"></span>
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_event_EventDispatcher.js.html#l35"><code>src&#x2F;event&#x2F;EventDispatcher.js:35</code></a>
+        </p>
+
+
+    </div>
+
+    <div class="description">
+        <p>eventType を key にした listener(function) を配列にし管理します</p>
+
+    </div>
+
+
+
+</div>
+            </div>
 
 
     </div>

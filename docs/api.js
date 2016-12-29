@@ -13,7 +13,7 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "Gasane",
             "name": "Gasane",
-            "description": "requestAnimationFrame Event を発火します"
+            "description": "Fps, Polling 時間管理eventを発行します"
         }
     ],
     "elements": []

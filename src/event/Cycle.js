@@ -1,9 +1,7 @@
 /**
- * requestAnimationFrame Event を発火します
+ * Fps, Polling 時間管理eventを発行します
  *
  * @module Gasane
- *
- *
  */
 (function(window) {
   'use strict';
