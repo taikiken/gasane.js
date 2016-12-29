@@ -174,6 +174,7 @@ gulp.task('js:eslint', function() {
 gulp.task( 'script-build', function () {
 
   runSequence(
+    'js:eslint',
     'script-concat',
     'script-min',
     // 'script-hint',
