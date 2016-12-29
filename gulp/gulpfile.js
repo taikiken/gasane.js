@@ -46,7 +46,7 @@ var cached = require( 'gulp-cached' );
 
 var replace = require('gulp-replace-task');
 
-var jshint = require('gulp-jshint');
+// var jshint = require('gulp-jshint');
 
 var eslint = require('gulp-eslint');
 
@@ -147,15 +147,15 @@ gulp.task( 'script-version', function () {
 //     .pipe( gulp.dest( dir.docs ) );
 // } );
 
-// Lint JavaScript
-gulp.task('script-hint', function () {
-  return gulp.src( [
-    dir.src + '/**/*.js'
-  ] )
-    //.pipe(reload({stream: true, once: true}))
-    .pipe(jshint())
-    .pipe(jshint.reporter('jshint-stylish'));
-});
+// // Lint JavaScript
+// gulp.task('script-hint', function () {
+//   return gulp.src( [
+//     dir.src + '/**/*.js'
+//   ] )
+//     //.pipe(reload({stream: true, once: true}))
+//     .pipe(jshint())
+//     .pipe(jshint.reporter('jshint-stylish'));
+// });
 
 
 // ESLint
@@ -176,7 +176,7 @@ gulp.task( 'script-build', function () {
   runSequence(
     'script-concat',
     'script-min',
-    'script-hint',
+    // 'script-hint',
     'script-version'
   );
 
