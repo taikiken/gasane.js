@@ -42,11 +42,13 @@ var path = require( 'path' );
 
 var cached = require( 'gulp-cached' );
 
-var yuidoc = require( 'gulp-yuidoc' );
+// var yuidoc = require( 'gulp-yuidoc' );
 
 var replace = require('gulp-replace-task');
 
-var jshint = require('gulp-jshint');
+// var jshint = require('gulp-jshint');
+
+var eslint = require('gulp-eslint');
 
 // ----------------------------------------------------------------
 // Directory
@@ -136,34 +138,46 @@ gulp.task( 'script-version', function () {
 
 } );
 
-// YUIDocs
-gulp.task( 'script-docs', function () {
+// // YUIDocs
+// gulp.task( 'script-docs', function () {
+//
+//   return gulp.src( scripts )
+//     .pipe( yuidoc.parser() )
+//     .pipe( yuidoc.generator() )
+//     .pipe( gulp.dest( dir.docs ) );
+// } );
 
-  return gulp.src( scripts )
-    .pipe( yuidoc.parser() )
-    .pipe( yuidoc.generator() )
-    .pipe( gulp.dest( dir.docs ) );
-} );
+// // Lint JavaScript
+// gulp.task('script-hint', function () {
+//   return gulp.src( [
+//     dir.src + '/**/*.js'
+//   ] )
+//     //.pipe(reload({stream: true, once: true}))
+//     .pipe(jshint())
+//     .pipe(jshint.reporter('jshint-stylish'));
+// });
 
-// Lint JavaScript
-gulp.task('script-hint', function () {
-  return gulp.src( [
-    dir.src + '/**/*.js'
-  ] )
-    //.pipe(reload({stream: true, once: true}))
-    .pipe(jshint())
-    .pipe(jshint.reporter('jshint-stylish'));
+
+// ESLint
+gulp.task('js:eslint', function() {
+  return gulp.src(dir.src + '/**/*.js')
+    .pipe(eslint({
+      useEslintrc: false,
+      configFile: '../eslint.es5.yml'
+    }))
+    .pipe(eslint.format())
+    .pipe(size( { title: '*** js:eslint ***' } ) );
 });
-
 
 // ----------------------------------------------------------------
 // build
 gulp.task( 'script-build', function () {
 
   runSequence(
+    'js:eslint',
     'script-concat',
     'script-min',
-    'script-hint',
+    // 'script-hint',
     'script-version'
   );
 

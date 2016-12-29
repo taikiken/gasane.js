@@ -25,31 +25,24 @@
  * @module Gasane
  * @type {{}}
  */
-var Gasane = Gasane || {};
+var Gasane = window.Gasane || {};
 
-( function ( window ){
+(function(window) {
   'use strict';
-
   var
     self = window.self;
-
-
   // Date.now
   // https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date/now
-  if ( !Date.now ) {
-
+  if (!Date.now) {
     Date.now = function now() {
-
       return new Date().getTime();
-
     };
-
   }
 
   // requestAnimationFrame
   // http://paulirish.com/2011/requestanimationframe-for-smart-animating/
   // http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
-  ( function (){
+  (function() {
     var
       lastTime = 0,
       vendors = [ 'ms', 'moz', 'webkit', 'o' ],
@@ -58,38 +51,31 @@ var Gasane = Gasane || {};
       currTime,
       timeToCall,
       id,
-      _max;
+      mathMax;
 
-    for ( x = 0, limit = vendors.length; x < limit && !self.requestAnimationFrame; ++ x ) {
-
+    for (x = 0, limit = vendors.length; x < limit && !self.requestAnimationFrame; ++x) {
       self.requestAnimationFrame = self[ vendors[ x ] + 'RequestAnimationFrame' ];
       self.cancelAnimationFrame = self[ vendors[ x ] + 'CancelAnimationFrame' ] || self[ vendors[ x ] + 'CancelRequestAnimationFrame' ];
-
     }
 
-    if ( self.requestAnimationFrame === undefined && self.setTimeout !== undefined ) {
+    if (typeof self.requestAnimationFrame === 'undefined' && typeof self.setTimeout !== 'undefined') {
+      mathMax = Math.max;
 
-      _max = Math.max;
-
-      self.requestAnimationFrame = function ( callback ) {
-
+      self.requestAnimationFrame = function(callback) {
         currTime = Date.now();
-        timeToCall = _max( 0, 16 - ( currTime - lastTime ) );
-        id = self.setTimeout( function() { callback( currTime + timeToCall ); }, timeToCall );
-
+        timeToCall = mathMax(0, 16 - (currTime - lastTime));
+        id = self.setTimeout(function() {
+          callback( currTime + timeToCall );
+        }, timeToCall);
         lastTime = currTime + timeToCall;
-
         return id;
-
       };
-
     }
 
-    if( self.cancelAnimationFrame === undefined && self.clearTimeout !== undefined ) {
-
-      self.cancelAnimationFrame = function ( id ) { self.clearTimeout( id ); };
-
+    if(typeof self.cancelAnimationFrame === 'undefined' && typeof self.clearTimeout !== 'undefined') {
+      self.cancelAnimationFrame = function(timerId) {
+        self.clearTimeout(timerId);
+      };
     }
-
-  }() );
-}( window ) );
+  }());
+}(window));
